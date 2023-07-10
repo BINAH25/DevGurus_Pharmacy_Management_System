@@ -11,6 +11,8 @@ module com.example.pharmacy_management_system {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires java.sql;
+    requires fontawesomefx;
+
 
     opens com.example.pharmacy_management_system to javafx.fxml;
     exports com.example.pharmacy_management_system;

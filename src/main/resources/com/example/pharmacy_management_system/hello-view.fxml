@@ -36,9 +36,9 @@
                         <Font name="Arial Black" size="15.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="45.0" layoutY="191.0" prefHeight="38.0" prefWidth="217.0" promptText="Email" styleClass="textfield" stylesheets="@style.css" />
-                  <TextField layoutX="46.0" layoutY="246.0" prefHeight="38.0" prefWidth="217.0" promptText="Password" styleClass="textfield" stylesheets="@style.css" />
-                  <Button layoutX="46.0" layoutY="304.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="217.0" styleClass="btn" stylesheets="@style.css" text="Login">
+                  <TextField fx:id="email" layoutX="45.0" layoutY="191.0" prefHeight="38.0" prefWidth="217.0" promptText="Email" styleClass="textfield" stylesheets="@style.css" />
+                  <TextField fx:id="password" layoutX="46.0" layoutY="246.0" prefHeight="38.0" prefWidth="217.0" promptText="Password" styleClass="textfield" stylesheets="@style.css" />
+                  <Button fx:id="login_btn" layoutX="46.0" layoutY="304.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="217.0" styleClass="btn" stylesheets="@style.css" text="Login">
                      <font>
                         <Font size="15.0" />
                      </font>
