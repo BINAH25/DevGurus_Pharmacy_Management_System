@@ -10,7 +10,10 @@ module com.example.pharmacy_management_system {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.sql;
 
     opens com.example.pharmacy_management_system to javafx.fxml;
     exports com.example.pharmacy_management_system;
+    exports com.example.pharmacy_management_system.Controllers;
+    opens com.example.pharmacy_management_system.Controllers to javafx.fxml;
 }
