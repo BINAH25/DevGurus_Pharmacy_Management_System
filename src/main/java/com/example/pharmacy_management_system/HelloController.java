@@ -1,17 +1,19 @@
-package com.example.pharmacy_management_system.Controllers;
-import com.example.pharmacy_management_system.Database.database;
+package com.example.pharmacy_management_system;
+import com.example.pharmacy_management_system.Database;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.concurrent.ExecutionException;
 
-public class LoginController {
+public class HelloController {
     @FXML
     private TextField email;
 
@@ -40,7 +42,7 @@ public class LoginController {
                 alert.setContentText("Please fill all blank fields");
                 alert.showAndWait();
             }else{
-                connect = database.connect();
+                connect = Database.connect();
                 prepare = connect.prepareStatement(sql);
                 prepare.setString(1,email.getText());
                 prepare.setString(2,password.getText());
@@ -51,6 +53,14 @@ public class LoginController {
                     alert.setHeaderText(null);
                     alert.setContentText("Login Successful");
                     alert.showAndWait();
+                    login_btn.getScene().getWindow().hide();
+                    Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+                    //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+                    Stage stage = new Stage();
+                    Scene scene = new Scene(root);
+                    stage.setTitle("ADMIN LOGIN PAGE");
+                    stage.setScene(scene);
+                    stage.show();
                 }else{
                     alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error Message");

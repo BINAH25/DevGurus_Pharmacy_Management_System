@@ -1,9 +1,9 @@
-package com.example.pharmacy_management_system.Database;
+package com.example.pharmacy_management_system;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class database {
+public class Database {
     public static Connection connect(){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
