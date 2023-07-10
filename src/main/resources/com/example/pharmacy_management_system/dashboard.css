@@ -1,0 +1,11 @@
+.top-form{
+-fx-background-color: #fff;
+-fx-border-color: #000;
+-fx-border-width: .4px .4px .2px .4px;
+}
+
+.semi-top-form{
+-fx-background-color: #efefef;
+-fx-border-color: #000;
+-fx-border-width: .2px .4px .4px .4px;
+}
