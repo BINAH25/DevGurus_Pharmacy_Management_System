@@ -1,5 +1,5 @@
 package com.example.pharmacy_management_system.Controllers;
-
+import com.example.pharmacy_management_system.Database.database;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.concurrent.ExecutionException;
 
 public class LoginController {
     @FXML
@@ -24,4 +25,42 @@ public class LoginController {
     PreparedStatement prepare;
     ResultSet result;
 
+    // ADMIN LOGIN METHOD
+    public void Login(){
+        String sql = "SELECT email,password FROM admin WHERE email = ? and password = ? ";
+
+        try {
+            if (
+                    email.getText().isEmpty() || password.getText().isEmpty()
+
+            ) {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Please fill all blank fields");
+                alert.showAndWait();
+            }else{
+                connect = database.connect();
+                prepare = connect.prepareStatement(sql);
+                prepare.setString(1,email.getText());
+                prepare.setString(2,password.getText());
+                result = prepare.executeQuery();
+                if(result.next()){
+                    alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("success Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Login Successful");
+                    alert.showAndWait();
+                }else{
+                    alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Invalid Credential");
+                    alert.showAndWait();
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();;
+        }
+    }
 }
