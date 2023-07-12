@@ -178,7 +178,7 @@
             </BorderPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="medicine_form" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+      <AnchorPane fx:id="medicine_form" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
          <children>
             <BorderPane layoutX="246.0" layoutY="206.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <top>
@@ -267,7 +267,7 @@
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox fx:id="medicine_supplier" layoutX="111.0" layoutY="104.0" prefHeight="26.0" prefWidth="163.0" promptText="select suplier..." />
+                                    <ComboBox fx:id="medicine_supplier" layoutX="111.0" layoutY="104.0" onAction="#medecineCategoryList" prefHeight="26.0" prefWidth="163.0" promptText="select suplier..." />
                                     <Label layoutX="283.0" layoutY="57.0" text="Medicine Name:">
                                        <font>
                                           <Font name="Arial Bold" size="15.0" />
@@ -348,7 +348,7 @@
             </BorderPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="suplier_form" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
+      <AnchorPane fx:id="suplier_form" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" visible="false">
          <children>
             <BorderPane layoutX="246.0" layoutY="206.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <top>

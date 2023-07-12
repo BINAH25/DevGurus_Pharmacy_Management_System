@@ -455,7 +455,7 @@ public class DashboardController implements Initializable {
             e.printStackTrace();
         }
     }
-    //
+    //THIS METHOD UPDATE THE SUPPLIER
     public void updateSupplier() {
         connect = Database.connect();
         try {
@@ -487,11 +487,28 @@ public class DashboardController implements Initializable {
             e.printStackTrace();
         }
     }
+    //
+    public void medecineCategoryList(){
+        String sql = "SELECT * FROM supplier";
+        try {
+            connect = Database.connect();
+            prepare = connect.prepareStatement(sql);
+            result = prepare.executeQuery();
+            ObservableList lissData = FXCollections.observableArrayList();
+            while (result.next()){
+                lissData.add(result.getString("supplier_name"));
+            }
+            medicine_supplier.setItems(lissData);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     medicineStatusList();
     medicineCategory();
     showAllSuppliers();
+    medecineCategoryList();
     }
 
 }
