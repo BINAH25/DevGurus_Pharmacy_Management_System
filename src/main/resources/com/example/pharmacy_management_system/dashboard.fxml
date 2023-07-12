@@ -67,7 +67,7 @@
                                     <FontAwesomeIcon fill="WHITE" glyphName="MONEY" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button layoutX="15.0" layoutY="486.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="48.0" styleClass="add-btn" stylesheets="@dashboard.css">
+                              <Button fx:id="logout_btn" layoutX="15.0" layoutY="486.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="48.0" styleClass="add-btn" stylesheets="@dashboard.css">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" size="1.5em" />
                                  </graphic>
@@ -205,27 +205,27 @@
                                  </font>
                               </Label>
                               <Line endX="76.5" layoutX="94.0" layoutY="159.0" startX="-65.0" stroke="WHITE" strokeWidth="2.0" />
-                              <Button layoutX="18.0" layoutY="180.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Dashboard">
+                              <Button fx:id="dashboard_btn_1" layoutX="18.0" layoutY="180.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Dashboard">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="DASHBOARD" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button layoutX="17.0" layoutY="230.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Supplier">
+                              <Button fx:id="add_supplier_btn_1" layoutX="17.0" layoutY="230.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Supplier">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="PLUS_CIRCLE" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button layoutX="16.0" layoutY="272.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Medicine">
+                              <Button fx:id="add_medicine_btn_1" layoutX="16.0" layoutY="272.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Medicine">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="PLUS_CIRCLE" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button layoutX="16.0" layoutY="313.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Sell Medicine">
+                              <Button fx:id="sell_medicine_btn_1" layoutX="16.0" layoutY="313.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Sell Medicine">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="MONEY" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button layoutX="15.0" layoutY="486.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="48.0" styleClass="add-btn" stylesheets="@dashboard.css">
+                              <Button fx:id="logout_btn_1" layoutX="15.0" layoutY="486.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="48.0" styleClass="add-btn" stylesheets="@dashboard.css">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" size="1.5em" />
                                  </graphic>
@@ -375,27 +375,27 @@
                                  </font>
                               </Label>
                               <Line endX="76.5" layoutX="94.0" layoutY="159.0" startX="-65.0" stroke="WHITE" strokeWidth="2.0" />
-                              <Button layoutX="18.0" layoutY="180.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Dashboard">
+                              <Button fx:id="dashboard_btn_2" layoutX="18.0" layoutY="180.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Dashboard">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="DASHBOARD" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button layoutX="17.0" layoutY="230.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Supplier">
+                              <Button fx:id="add_supplier_btn_2" layoutX="17.0" layoutY="230.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Supplier">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="PLUS_CIRCLE" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button layoutX="16.0" layoutY="272.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Medicine">
+                              <Button fx:id="add_medicine_btn_2" layoutX="16.0" layoutY="272.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Medicine">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="PLUS_CIRCLE" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button layoutX="16.0" layoutY="313.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Sell Medicine">
+                              <Button fx:id="sell_medicine_btn_2" layoutX="16.0" layoutY="313.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Sell Medicine">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="MONEY" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button layoutX="15.0" layoutY="486.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="48.0" styleClass="add-btn" stylesheets="@dashboard.css">
+                              <Button fx:id="logout_btn_2" layoutX="15.0" layoutY="486.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="48.0" styleClass="add-btn" stylesheets="@dashboard.css">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" size="1.5em" />
                                  </graphic>
@@ -515,27 +515,27 @@
                                  </font>
                               </Label>
                               <Line endX="76.5" layoutX="94.0" layoutY="159.0" startX="-65.0" stroke="WHITE" strokeWidth="2.0" />
-                              <Button layoutX="18.0" layoutY="180.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Dashboard">
+                              <Button fx:id="dashboard_btn_3" layoutX="18.0" layoutY="180.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Dashboard">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="DASHBOARD" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button layoutX="17.0" layoutY="230.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Supplier">
+                              <Button fx:id="add_supplier_btn_3" layoutX="17.0" layoutY="230.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Supplier">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="PLUS_CIRCLE" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button layoutX="16.0" layoutY="272.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Medicine">
+                              <Button fx:id="add_medicine_btn_3" layoutX="16.0" layoutY="272.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Medicine">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="PLUS_CIRCLE" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button layoutX="16.0" layoutY="313.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Sell Medicine">
+                              <Button fx:id="sell_medicine_btn_3" layoutX="16.0" layoutY="313.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Sell Medicine">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="MONEY" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button layoutX="15.0" layoutY="486.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="48.0" styleClass="add-btn" stylesheets="@dashboard.css">
+                              <Button fx:id="logout_btn_3" layoutX="15.0" layoutY="486.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="48.0" styleClass="add-btn" stylesheets="@dashboard.css">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" size="1.5em" />
                                  </graphic>
