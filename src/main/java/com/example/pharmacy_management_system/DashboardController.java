@@ -1,4 +1,5 @@
 package com.example.pharmacy_management_system;
+import com.example.pharmacy_management_system.Database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -6,16 +7,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -147,6 +148,15 @@ public class DashboardController implements Initializable {
 
     @FXML
     private Button update_medicine;
+    @FXML
+    private TextField suppler_id;
+    @FXML
+    private TextField supplier_name;
+    // Sql import
+    Connection connect;
+    PreparedStatement prepare;
+    ResultSet result;
+    Alert alert;
 
     // LOGOUT METHOD
     public  void logout() throws IOException {
@@ -283,7 +293,7 @@ public class DashboardController implements Initializable {
         medicine_status.setItems(listData);
 
     }
-    // METHOD TO FILL THE MEDICINE CATEGORY COMBO
+    // CREATING A LIST OF CATEGORY
     String[] Category = {
             "Analgesics and Pain Relief",
             "Cold and Flu",
@@ -293,6 +303,7 @@ public class DashboardController implements Initializable {
             "Antipyretics",
             "Antiemetics"
     };
+    // METHOD TO FILL THE MEDICINE CATEGORY COMBO
 
     public void medicineCategory(){
         List<String> categoryList = new ArrayList<>();
@@ -301,6 +312,37 @@ public class DashboardController implements Initializable {
         }
         ObservableList listData = FXCollections.observableArrayList(categoryList);
         medicine_category.setItems(listData);
+    }
+
+    //
+    public void addSupplier(){
+        String sql = "INSERT INTO supplier (suppler_id,supplier_name) VALUES (?,?)";
+        try {
+            if(suppler_id.getText().isEmpty()|| supplier_name.getText().isEmpty()){
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Please fill all blank fields");
+                alert.showAndWait();
+            }else {
+                connect = Database.connect();
+                prepare = connect.prepareStatement(sql);
+                prepare.setString(1,suppler_id.getText());
+                prepare.setString(2,supplier_name.getText());
+                prepare.executeUpdate();
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("success Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Supplier Added successfully");
+                alert.showAndWait();
+                supplier_name.setText("");
+                suppler_id.setText("");
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

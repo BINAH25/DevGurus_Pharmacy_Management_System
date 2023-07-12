@@ -178,7 +178,7 @@
             </BorderPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="medicine_form" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
+      <AnchorPane fx:id="medicine_form" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" visible="false">
          <children>
             <BorderPane layoutX="246.0" layoutY="206.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <top>
@@ -348,7 +348,7 @@
             </BorderPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="suplier_form" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+      <AnchorPane fx:id="suplier_form" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
          <children>
             <BorderPane layoutX="246.0" layoutY="206.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <top>
@@ -426,13 +426,13 @@
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="56.0" layoutY="142.0" prefHeight="33.0" prefWidth="191.0" promptText="Enter Suplier ID" />
+                                    <TextField fx:id="suppler_id" layoutX="56.0" layoutY="142.0" prefHeight="33.0" prefWidth="191.0" promptText="Enter Suplier ID" />
                                     <Label layoutX="37.0" layoutY="57.0" text="ADD SUPLIER FORM">
                                        <font>
                                           <Font name="Arial Black" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="56.0" layoutY="279.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="191.0" styleClass="nav" stylesheets="@dashboard.css" text="Add" textFill="WHITE">
+                                    <Button layoutX="56.0" layoutY="279.0" mnemonicParsing="false" onAction="#addSupplier" prefHeight="33.0" prefWidth="191.0" styleClass="nav" stylesheets="@dashboard.css" text="Add" textFill="WHITE">
                                        <font>
                                           <Font name="Arial Bold" size="13.0" />
                                        </font>
@@ -442,7 +442,7 @@
                                           <Font name="Arial Bold" size="13.0" />
                                        </font>
                                     </Button>
-                                    <TextField layoutX="55.0" layoutY="224.0" prefHeight="33.0" prefWidth="191.0" promptText="Enter Suplier Name" />
+                                    <TextField fx:id="supplier_name" layoutX="55.0" layoutY="224.0" prefHeight="33.0" prefWidth="191.0" promptText="Enter Suplier Name" />
                                     <Label layoutX="53.0" layoutY="188.0" prefHeight="29.0" prefWidth="166.0" text="Suplier Name">
                                        <font>
                                           <Font name="Arial Bold" size="15.0" />
