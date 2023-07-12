@@ -503,6 +503,52 @@ public class DashboardController implements Initializable {
             e.printStackTrace();
         }
     }
+    // ******************** MEDICINE CONTROLLER START *********************************
+    // ADD MEDICINE METHOD
+    public void addMedicine(){
+        String sql = "INSERT INTO medicine (medicine_id,medicine_name,medicine_price,category,supplier,status,date)" +
+                "VALUES(?,?,?,?,?,?,?)";
+        try {
+            if(
+                    medicine_id.getText().isEmpty()
+                    || medicine_name.getText().isEmpty()
+                    || medicine_price.getText().isEmpty()
+                    || medicine_category.getSelectionModel().getSelectedItem()==null
+                    || medicine_supplier.getSelectionModel().getSelectedItem()==null
+                    || medicine_status.getSelectionModel().getSelectedItem()==null
+            ){
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Please fill all blank fields");
+                alert.showAndWait();
+            }else{
+                connect = Database.connect();
+                prepare = connect.prepareStatement(sql);
+                prepare.setString(1,medicine_id.getText());
+                prepare.setString(2,medicine_name.getText());
+                prepare.setString(3,medicine_price.getText());
+                prepare.setString(4, (String) medicine_category.getSelectionModel().getSelectedItem());
+                prepare.setString(5,(String) medicine_supplier.getSelectionModel().getSelectedItem());
+                prepare.setString(6,(String)medicine_status.getSelectionModel().getSelectedItem());
+                // GETTING THE DATE
+                Date date = new Date();
+                java.sql.Date sqldate = new java.sql.Date(date.getTime());
+                prepare.setString(7,String.valueOf(sqldate));
+                // EXECUTING THE COMMAND
+                prepare.executeUpdate();
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Medicine Added  Successfully");
+                alert.showAndWait();
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     medicineStatusList();
