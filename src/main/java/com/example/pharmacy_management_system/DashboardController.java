@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -154,6 +155,18 @@ public class DashboardController implements Initializable {
     private TextField suppler_id;
     @FXML
     private TextField supplier_name;
+    @FXML
+    private TableColumn<Supplier, String> supplier_col_1;
+
+    @FXML
+    private TableColumn<Supplier, String> supplier_col_2;
+
+    @FXML
+    private TableColumn<Supplier, String> supplier_col_3;
+
+
+    @FXML
+    private TableView<Supplier> supplier_table_view;
     // Sql import
     Connection connect;
     PreparedStatement prepare;
@@ -214,6 +227,8 @@ public class DashboardController implements Initializable {
             medicine_form.setVisible(false);
             suplier_form.setVisible(true);
             sell_medicine_form.setVisible(false);
+            showAllSuppliers();
+
         } else if (event.getSource()==sell_medicine_btn) {
             dashboard_form.setVisible(false);
             medicine_form.setVisible(false);
@@ -235,6 +250,8 @@ public class DashboardController implements Initializable {
             medicine_form.setVisible(false);
             suplier_form.setVisible(true);
             sell_medicine_form.setVisible(false);
+            showAllSuppliers();
+
         } else if (event.getSource()==sell_medicine_btn_1) {
             dashboard_form.setVisible(false);
             medicine_form.setVisible(false);
@@ -256,6 +273,8 @@ public class DashboardController implements Initializable {
             medicine_form.setVisible(false);
             suplier_form.setVisible(true);
             sell_medicine_form.setVisible(false);
+            showAllSuppliers();
+
         } else if (event.getSource()==sell_medicine_btn_2) {
             dashboard_form.setVisible(false);
             medicine_form.setVisible(false);
@@ -277,6 +296,8 @@ public class DashboardController implements Initializable {
             medicine_form.setVisible(false);
             suplier_form.setVisible(true);
             sell_medicine_form.setVisible(false);
+            showAllSuppliers();
+
         } else if (event.getSource()==sell_medicine_btn_3) {
             dashboard_form.setVisible(false);
             medicine_form.setVisible(false);
@@ -318,7 +339,7 @@ public class DashboardController implements Initializable {
 // ******************************* SUPPLIER CONTROLLER START *****************************************//
     // METHOD TO ADD SUPPLIER
     public void addSupplier(){
-        String sql = "INSERT INTO supplier (suppler_id,supplier_name) VALUES (?,?)";
+        String sql = "INSERT INTO supplier (suppler_id,supplier_name,date) VALUES (?,?,?)";
         try {
             if(suppler_id.getText().isEmpty()|| supplier_name.getText().isEmpty()){
                 alert = new Alert(Alert.AlertType.ERROR);
@@ -342,6 +363,8 @@ public class DashboardController implements Initializable {
                 alert.setHeaderText(null);
                 alert.setContentText("Supplier Added successfully");
                 alert.showAndWait();
+                showAllSuppliers();
+            // SET THE SUPPLIER FORM EMPTY
                 supplier_name.setText("");
                 suppler_id.setText("");
             }
@@ -362,7 +385,7 @@ public class DashboardController implements Initializable {
             Supplier supplier ;
             while (result.next()){
                 supplier = new Supplier(
-                        result.getString("supplier_id"),
+                        result.getString("suppler_id"),
                         result.getString("supplier_name"),
                         result.getDate("date")
                 );
@@ -373,10 +396,20 @@ public class DashboardController implements Initializable {
         }
         return  suppliers;
     }
+
+    ObservableList<Supplier> supplierObservableList;
+    public void showAllSuppliers(){
+        supplierObservableList = getAllSupplier();
+        supplier_col_1.setCellValueFactory(new PropertyValueFactory<>("supplier_id"));
+        supplier_col_2.setCellValueFactory(new PropertyValueFactory<>("supplier_name"));
+        supplier_col_3.setCellValueFactory(new PropertyValueFactory<>("date"));
+        supplier_table_view.setItems(supplierObservableList);
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         medicineStatusList();
         medicineCategory();
+        showAllSuppliers();
 
     }
 

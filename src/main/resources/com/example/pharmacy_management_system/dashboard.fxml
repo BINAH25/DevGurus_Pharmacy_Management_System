@@ -471,11 +471,11 @@
                                           <Font name="Arial Black" size="18.0" />
                                        </font>
                                     </Label>
-                                    <TableView layoutX="18.0" layoutY="35.0" prefHeight="489.0" prefWidth="558.0">
+                                    <TableView fx:id="supplier_table_view" layoutX="18.0" layoutY="35.0" prefHeight="489.0" prefWidth="558.0">
                                       <columns>
-                                        <TableColumn prefWidth="156.0" text="Suplier ID" />
-                                        <TableColumn prefWidth="226.0" text="Suplier Name" />
-                                          <TableColumn prefWidth="173.0" text="Date" />
+                                        <TableColumn fx:id="supplier_col_1" prefWidth="156.0" text="Suplier ID" />
+                                        <TableColumn fx:id="supplier_col_2" prefWidth="226.0" text="Suplier Name" />
+                                          <TableColumn fx:id="supplier_col_3" prefWidth="173.0" text="Date" />
                                       </columns>
                                     </TableView>
                                  </children>
