@@ -1,4 +1,5 @@
 package com.example.pharmacy_management_system;
+import com.example.pharmacy_management_system.Data.Supplier;
 import com.example.pharmacy_management_system.Database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -314,8 +315,8 @@ public class DashboardController implements Initializable {
         ObservableList listData = FXCollections.observableArrayList(categoryList);
         medicine_category.setItems(listData);
     }
-
-    //
+// ******************************* SUPPLIER CONTROLLER START *****************************************//
+    // METHOD TO ADD SUPPLIER
     public void addSupplier(){
         String sql = "INSERT INTO supplier (suppler_id,supplier_name) VALUES (?,?)";
         try {
@@ -349,6 +350,28 @@ public class DashboardController implements Initializable {
             e.printStackTrace();
         }
 
+    }
+    // METHOD TO GET ALL SUPPLIERS
+    public ObservableList<Supplier> getAllSupplier(){
+        ObservableList<Supplier> suppliers = FXCollections.observableArrayList();
+        String getSuppliers = "SELECT * FROM supplier";
+        try {
+            connect = Database.connect();
+            prepare = connect.prepareStatement(getSuppliers);
+            result = prepare.executeQuery();
+            Supplier supplier ;
+            while (result.next()){
+                supplier = new Supplier(
+                        result.getString("supplier_id"),
+                        result.getString("supplier_name"),
+                        result.getDate("date")
+                );
+                suppliers.add(supplier);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return  suppliers;
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
