@@ -20,7 +20,7 @@
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacy_management_system.DashboardController">
    <children>
-      <AnchorPane fx:id="dashboard_form" prefHeight="200.0" prefWidth="200.0">
+      <AnchorPane fx:id="dashboard_form" prefHeight="200.0" prefWidth="200.0" visible="false">
          <children>
             <BorderPane layoutX="246.0" layoutY="206.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <top>
@@ -47,22 +47,22 @@
                                  </font>
                               </Label>
                               <Line endX="76.5" layoutX="94.0" layoutY="159.0" startX="-65.0" stroke="WHITE" strokeWidth="2.0" />
-                              <Button fx:id="dashboard_btn" layoutX="18.0" layoutY="180.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Dashboard">
+                              <Button fx:id="dashboard_btn" layoutX="18.0" layoutY="180.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Dashboard">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="DASHBOARD" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="add_supplier_btn" layoutX="17.0" layoutY="230.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Supplier">
+                              <Button fx:id="add_supplier_btn" layoutX="17.0" layoutY="230.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Supplier">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="PLUS_CIRCLE" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="add_medicine_btn" layoutX="16.0" layoutY="272.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Medicine">
+                              <Button fx:id="add_medicine_btn" layoutX="16.0" layoutY="272.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Medicine">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="PLUS_CIRCLE" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="sell_medicine_btn" layoutX="16.0" layoutY="313.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Sell Medicine">
+                              <Button fx:id="sell_medicine_btn" layoutX="16.0" layoutY="313.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Sell Medicine">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="MONEY" size="1.5em" />
                                  </graphic>
@@ -178,7 +178,7 @@
             </BorderPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="medicine_form" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+      <AnchorPane fx:id="medicine_form" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
          <children>
             <BorderPane layoutX="246.0" layoutY="206.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <top>
@@ -205,22 +205,22 @@
                                  </font>
                               </Label>
                               <Line endX="76.5" layoutX="94.0" layoutY="159.0" startX="-65.0" stroke="WHITE" strokeWidth="2.0" />
-                              <Button fx:id="dashboard_btn_1" layoutX="18.0" layoutY="180.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Dashboard">
+                              <Button fx:id="dashboard_btn_1" layoutX="18.0" layoutY="180.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Dashboard">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="DASHBOARD" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="add_supplier_btn_1" layoutX="17.0" layoutY="230.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Supplier">
+                              <Button fx:id="add_supplier_btn_1" layoutX="17.0" layoutY="230.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Supplier">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="PLUS_CIRCLE" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="add_medicine_btn_1" layoutX="16.0" layoutY="272.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Medicine">
+                              <Button fx:id="add_medicine_btn_1" layoutX="16.0" layoutY="272.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Medicine">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="PLUS_CIRCLE" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="sell_medicine_btn_1" layoutX="16.0" layoutY="313.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Sell Medicine">
+                              <Button fx:id="sell_medicine_btn_1" layoutX="16.0" layoutY="313.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Sell Medicine">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="MONEY" size="1.5em" />
                                  </graphic>
@@ -256,7 +256,7 @@
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="111.0" layoutY="54.0" promptText="Enter Medicine ID" />
+                                    <TextField fx:id="medicine_id" layoutX="111.0" layoutY="54.0" promptText="Enter Medicine ID" />
                                     <Label layoutX="272.0" layoutY="8.0" text="ADD MEDICINE/DRUG FORM">
                                        <font>
                                           <Font name="Arial Black" size="18.0" />
@@ -267,47 +267,47 @@
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox layoutX="111.0" layoutY="104.0" prefHeight="26.0" prefWidth="163.0" promptText="select suplier..." />
+                                    <ComboBox fx:id="medicine_supplier" layoutX="111.0" layoutY="104.0" prefHeight="26.0" prefWidth="163.0" promptText="select suplier..." />
                                     <Label layoutX="283.0" layoutY="57.0" text="Medicine Name:">
                                        <font>
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="409.0" layoutY="53.0" promptText="Enter Medicine Name" />
+                                    <TextField fx:id="medicine_name" layoutX="409.0" layoutY="53.0" promptText="Enter Medicine Name" />
                                     <Label layoutX="286.0" layoutY="109.0" text="Category Name:">
                                        <font>
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox layoutX="408.0" layoutY="104.0" prefHeight="26.0" prefWidth="163.0" promptText="select suplier..." />
+                                    <ComboBox fx:id="medicine_category" layoutX="408.0" layoutY="104.0" prefHeight="26.0" prefWidth="163.0" promptText="select Category..." />
                                     <Label layoutX="580.0" layoutY="55.0" text="Medicine Price:">
                                        <font>
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="706.0" layoutY="51.0" promptText="Enter Medicine Price" />
+                                    <TextField fx:id="medicine_price" layoutX="706.0" layoutY="51.0" promptText="Enter Medicine Price" />
                                     <Label layoutX="639.0" layoutY="109.0" text="Status:">
                                        <font>
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox layoutX="706.0" layoutY="104.0" prefHeight="26.0" prefWidth="163.0" promptText="select status.." />
-                                    <Button layoutX="111.0" layoutY="156.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="69.0" styleClass="nav" stylesheets="@../../../../../DCIT308/pratical/InventoryManagemenSystem/src/main/resources/com/example/inventorymanagemensystem/dashboard.css" text="Add" textFill="WHITE">
+                                    <ComboBox fx:id="medicine_status" layoutX="706.0" layoutY="104.0" onAction="#medicineStatusList" prefHeight="26.0" prefWidth="163.0" promptText="select status.." />
+                                    <Button fx:id="add_medicine" layoutX="111.0" layoutY="156.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="69.0" styleClass="nav" stylesheets="@dashboard.css" text="Add" textFill="WHITE">
                                        <font>
                                           <Font name="Arial Bold" size="13.0" />
                                        </font>
                                     </Button>
-                                    <Button layoutX="207.0" layoutY="156.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="69.0" styleClass="nav" stylesheets="@../../../../../DCIT308/pratical/InventoryManagemenSystem/src/main/resources/com/example/inventorymanagemensystem/dashboard.css" text="Update" textFill="WHITE">
+                                    <Button fx:id="update_medicine" layoutX="207.0" layoutY="156.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="69.0" styleClass="nav" stylesheets="@dashboard.css" text="Update" textFill="WHITE">
                                        <font>
                                           <Font name="Arial Bold" size="13.0" />
                                        </font>
                                     </Button>
-                                    <Button layoutX="306.0" layoutY="156.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="88.0" styleClass="add-btn" stylesheets="@../../../../../DCIT308/pratical/InventoryManagemenSystem/src/main/resources/com/example/inventorymanagemensystem/dashboard.css" text="Remove" textFill="WHITE">
+                                    <Button fx:id="remove_medicine" layoutX="306.0" layoutY="156.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="88.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Remove" textFill="WHITE">
                                        <font>
                                           <Font name="Arial Bold" size="13.0" />
                                        </font>
                                     </Button>
-                                    <Button layoutX="422.0" layoutY="156.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="88.0" styleClass="add-btn" stylesheets="@../../../../../DCIT308/pratical/InventoryManagemenSystem/src/main/resources/com/example/inventorymanagemensystem/dashboard.css" text="Clear" textFill="WHITE">
+                                    <Button fx:id="clear_medicine_form" layoutX="422.0" layoutY="156.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="88.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Clear" textFill="WHITE">
                                        <font>
                                           <Font name="Arial Bold" size="13.0" />
                                        </font>
@@ -320,18 +320,18 @@
                                     <String fx:value="shadow" />
                                  </styleClass>
                                  <children>
-                                    <TableView layoutX="10.0" layoutY="52.0" prefHeight="255.0" prefWidth="853.0">
+                                    <TableView fx:id="medicine_table_view" layoutX="10.0" layoutY="52.0" prefHeight="255.0" prefWidth="853.0">
                                       <columns>
-                                        <TableColumn prefWidth="102.0" text="Medicine ID" />
-                                        <TableColumn prefWidth="116.0" text="Medicine Name" />
-                                          <TableColumn prefWidth="148.0" text="Medicine Price" />
-                                          <TableColumn prefWidth="128.0" text="Suplier Name" />
-                                          <TableColumn prefWidth="140.0" text="Category Name" />
-                                          <TableColumn prefWidth="122.0" text="Status" />
-                                          <TableColumn prefWidth="95.0" text="Date" />
+                                        <TableColumn fx:id="medicine_col_1" prefWidth="102.0" text="Medicine ID" />
+                                        <TableColumn fx:id="medicine_col_2" prefWidth="116.0" text="Medicine Name" />
+                                          <TableColumn fx:id="medicine_col_3" prefWidth="148.0" text="Medicine Price" />
+                                          <TableColumn fx:id="medicine_col_4" prefWidth="128.0" text="Suplier Name" />
+                                          <TableColumn fx:id="medicine_col_5" prefWidth="140.0" text="Category Name" />
+                                          <TableColumn fx:id="medicine_col_6" prefWidth="122.0" text="Status" />
+                                          <TableColumn fx:id="medicine_col_7" prefWidth="95.0" text="Date" />
                                       </columns>
                                     </TableView>
-                                    <TextField layoutX="10.0" layoutY="7.0" prefHeight="33.0" prefWidth="254.0" promptText="Search" styleClass="search" stylesheets="@../../../../../DCIT308/pratical/InventoryManagemenSystem/src/main/resources/com/example/inventorymanagemensystem/dashboard.css" />
+                                    <TextField layoutX="10.0" layoutY="7.0" prefHeight="33.0" prefWidth="254.0" promptText="Search" styleClass="search" stylesheets="@dashboard.css" />
                                     <FontAwesomeIcon glyphName="SEARCH" layoutX="16.0" layoutY="30.0" size="1.5em" />
                                     <Label layoutX="301.0" layoutY="6.0" text="ALL MEDICINES/DRUGS LISTS FORM">
                                        <font>
@@ -375,22 +375,22 @@
                                  </font>
                               </Label>
                               <Line endX="76.5" layoutX="94.0" layoutY="159.0" startX="-65.0" stroke="WHITE" strokeWidth="2.0" />
-                              <Button fx:id="dashboard_btn_2" layoutX="18.0" layoutY="180.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Dashboard">
+                              <Button fx:id="dashboard_btn_2" layoutX="18.0" layoutY="180.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Dashboard">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="DASHBOARD" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="add_supplier_btn_2" layoutX="17.0" layoutY="230.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Supplier">
+                              <Button fx:id="add_supplier_btn_2" layoutX="17.0" layoutY="230.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Supplier">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="PLUS_CIRCLE" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="add_medicine_btn_2" layoutX="16.0" layoutY="272.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Medicine">
+                              <Button fx:id="add_medicine_btn_2" layoutX="16.0" layoutY="272.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Medicine">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="PLUS_CIRCLE" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="sell_medicine_btn_2" layoutX="16.0" layoutY="313.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Sell Medicine">
+                              <Button fx:id="sell_medicine_btn_2" layoutX="16.0" layoutY="313.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Sell Medicine">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="MONEY" size="1.5em" />
                                  </graphic>
@@ -432,12 +432,12 @@
                                           <Font name="Arial Black" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="56.0" layoutY="279.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="191.0" styleClass="nav" stylesheets="@../../../../../DCIT308/pratical/InventoryManagemenSystem/src/main/resources/com/example/inventorymanagemensystem/dashboard.css" text="Add" textFill="WHITE">
+                                    <Button layoutX="56.0" layoutY="279.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="191.0" styleClass="nav" stylesheets="@dashboard.css" text="Add" textFill="WHITE">
                                        <font>
                                           <Font name="Arial Bold" size="13.0" />
                                        </font>
                                     </Button>
-                                    <Button layoutX="57.0" layoutY="328.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="191.0" styleClass="nav" stylesheets="@../../../../../DCIT308/pratical/InventoryManagemenSystem/src/main/resources/com/example/inventorymanagemensystem/dashboard.css" text="Update" textFill="WHITE">
+                                    <Button layoutX="57.0" layoutY="328.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="191.0" styleClass="nav" stylesheets="@dashboard.css" text="Update" textFill="WHITE">
                                        <font>
                                           <Font name="Arial Bold" size="13.0" />
                                        </font>
@@ -448,12 +448,12 @@
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="57.0" layoutY="380.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="191.0" styleClass="add-btn" stylesheets="@../../../../../DCIT308/pratical/InventoryManagemenSystem/src/main/resources/com/example/inventorymanagemensystem/dashboard.css" text="Remove" textFill="WHITE">
+                                    <Button layoutX="57.0" layoutY="380.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="191.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Remove" textFill="WHITE">
                                        <font>
                                           <Font name="Arial Bold" size="13.0" />
                                        </font>
                                     </Button>
-                                    <Button layoutX="58.0" layoutY="427.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="191.0" styleClass="add-btn" stylesheets="@../../../../../DCIT308/pratical/InventoryManagemenSystem/src/main/resources/com/example/inventorymanagemensystem/dashboard.css" text="Clear" textFill="WHITE">
+                                    <Button layoutX="58.0" layoutY="427.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="191.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Clear" textFill="WHITE">
                                        <font>
                                           <Font name="Arial Bold" size="13.0" />
                                        </font>
@@ -515,22 +515,22 @@
                                  </font>
                               </Label>
                               <Line endX="76.5" layoutX="94.0" layoutY="159.0" startX="-65.0" stroke="WHITE" strokeWidth="2.0" />
-                              <Button fx:id="dashboard_btn_3" layoutX="18.0" layoutY="180.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Dashboard">
+                              <Button fx:id="dashboard_btn_3" layoutX="18.0" layoutY="180.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Dashboard">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="DASHBOARD" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="add_supplier_btn_3" layoutX="17.0" layoutY="230.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Supplier">
+                              <Button fx:id="add_supplier_btn_3" layoutX="17.0" layoutY="230.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Supplier">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="PLUS_CIRCLE" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="add_medicine_btn_3" layoutX="16.0" layoutY="272.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Medicine">
+                              <Button fx:id="add_medicine_btn_3" layoutX="16.0" layoutY="272.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Medicine">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="PLUS_CIRCLE" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="sell_medicine_btn_3" layoutX="16.0" layoutY="313.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Sell Medicine">
+                              <Button fx:id="sell_medicine_btn_3" layoutX="16.0" layoutY="313.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="34.0" prefWidth="164.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Sell Medicine">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="MONEY" size="1.5em" />
                                  </graphic>
@@ -596,7 +596,7 @@
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="177.0" layoutY="248.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="96.0" styleClass="nav" stylesheets="@../../../../../DCIT308/pratical/InventoryManagemenSystem/src/main/resources/com/example/inventorymanagemensystem/dashboard.css" text="Add to Card" textFill="WHITE" />
+                                    <Button layoutX="177.0" layoutY="248.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="96.0" styleClass="nav" stylesheets="@dashboard.css" text="Add to Card" textFill="WHITE" />
                                     <Label layoutX="55.0" layoutY="302.0" prefHeight="29.0" prefWidth="72.0" text="Quantity:">
                                        <font>
                                           <Font name="Arial Bold" size="15.0" />

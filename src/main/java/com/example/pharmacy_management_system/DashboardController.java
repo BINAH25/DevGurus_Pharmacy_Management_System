@@ -1,4 +1,6 @@
 package com.example.pharmacy_management_system;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -7,13 +9,22 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
 public class DashboardController implements Initializable {
+    @FXML
+    private Button add_medicine;
+
     @FXML
     private Button add_medicine_btn;
 
@@ -37,6 +48,9 @@ public class DashboardController implements Initializable {
 
     @FXML
     private Button add_supplier_btn_3;
+
+    @FXML
+    private Button clear_medicine_form;
 
     @FXML
     private Button dashboard_btn;
@@ -66,7 +80,52 @@ public class DashboardController implements Initializable {
     private Button logout_btn_3;
 
     @FXML
+    private ComboBox<?> medicine_category;
+
+    @FXML
+    private TableColumn<?, ?> medicine_col_1;
+
+    @FXML
+    private TableColumn<?, ?> medicine_col_2;
+
+    @FXML
+    private TableColumn<?, ?> medicine_col_3;
+
+    @FXML
+    private TableColumn<?, ?> medicine_col_4;
+
+    @FXML
+    private TableColumn<?, ?> medicine_col_5;
+
+    @FXML
+    private TableColumn<?, ?> medicine_col_6;
+
+    @FXML
+    private TableColumn<?, ?> medicine_col_7;
+
+    @FXML
     private AnchorPane medicine_form;
+
+    @FXML
+    private TextField medicine_id;
+
+    @FXML
+    private TextField medicine_name;
+
+    @FXML
+    private TextField medicine_price;
+
+    @FXML
+    private ComboBox<?> medicine_status;
+
+    @FXML
+    private ComboBox<?> medicine_supplier;
+
+    @FXML
+    private TableView<?> medicine_table_view;
+
+    @FXML
+    private Button remove_medicine;
 
     @FXML
     private Button sell_medicine_btn;
@@ -86,6 +145,8 @@ public class DashboardController implements Initializable {
     @FXML
     private AnchorPane suplier_form;
 
+    @FXML
+    private Button update_medicine;
 
     // LOGOUT METHOD
     public  void logout() throws IOException {
@@ -97,9 +158,8 @@ public class DashboardController implements Initializable {
         stage.show();
         hideCurrentWindow();
 
-
     }
-
+// METHOD TO HIDE THE CURRENT ACTIVE WINDOW
     public void hideCurrentWindow(){
         dashboard_btn.getScene().getWindow().hide();
         add_medicine_btn.getScene().getWindow().hide();
@@ -121,8 +181,112 @@ public class DashboardController implements Initializable {
         add_supplier_btn_3.getScene().getWindow().hide();
         sell_medicine_btn_3.getScene().getWindow().hide();
     }
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    // METHOD FOR SWITCHING THE FORMS
+
+
+    public void switchForm(javafx.event.ActionEvent event) {
+        // FIRST OPTIONS
+        if(event.getSource()==dashboard_btn){
+            dashboard_form.setVisible(true);
+            medicine_form.setVisible(false);
+            suplier_form.setVisible(false);
+            sell_medicine_form.setVisible(false);
+        } else if (event.getSource()==add_medicine_btn) {
+            dashboard_form.setVisible(false);
+            medicine_form.setVisible(true);
+            suplier_form.setVisible(false);
+            sell_medicine_form.setVisible(false);
+        } else if (event.getSource()==add_supplier_btn) {
+            dashboard_form.setVisible(false);
+            medicine_form.setVisible(false);
+            suplier_form.setVisible(true);
+            sell_medicine_form.setVisible(false);
+        } else if (event.getSource()==sell_medicine_btn) {
+            dashboard_form.setVisible(false);
+            medicine_form.setVisible(false);
+            suplier_form.setVisible(false);
+            sell_medicine_form.setVisible(true);
+            // SECOND OPTIONS
+        } else if (event.getSource()==dashboard_btn_1) {
+            dashboard_form.setVisible(true);
+            medicine_form.setVisible(false);
+            suplier_form.setVisible(false);
+            sell_medicine_form.setVisible(false);
+        } else if (event.getSource()==add_medicine_btn_1) {
+            dashboard_form.setVisible(false);
+            medicine_form.setVisible(true);
+            suplier_form.setVisible(false);
+            sell_medicine_form.setVisible(false);
+        } else if (event.getSource()==add_supplier_btn_1) {
+            dashboard_form.setVisible(false);
+            medicine_form.setVisible(false);
+            suplier_form.setVisible(true);
+            sell_medicine_form.setVisible(false);
+        } else if (event.getSource()==sell_medicine_btn_1) {
+            dashboard_form.setVisible(false);
+            medicine_form.setVisible(false);
+            suplier_form.setVisible(false);
+            sell_medicine_form.setVisible(true);
+            // THIRD OPTIONS
+        } else if (event.getSource()==dashboard_btn_2) {
+            dashboard_form.setVisible(true);
+            medicine_form.setVisible(false);
+            suplier_form.setVisible(false);
+            sell_medicine_form.setVisible(false);
+        } else if (event.getSource()==add_medicine_btn_2) {
+            dashboard_form.setVisible(false);
+            medicine_form.setVisible(true);
+            suplier_form.setVisible(false);
+            sell_medicine_form.setVisible(false);
+        } else if (event.getSource()==add_supplier_btn_2) {
+            dashboard_form.setVisible(false);
+            medicine_form.setVisible(false);
+            suplier_form.setVisible(true);
+            sell_medicine_form.setVisible(false);
+        } else if (event.getSource()==sell_medicine_btn_2) {
+            dashboard_form.setVisible(false);
+            medicine_form.setVisible(false);
+            suplier_form.setVisible(false);
+            sell_medicine_form.setVisible(true);
+            // LAST OPTIONS
+        } else if (event.getSource()==dashboard_btn_3) {
+            dashboard_form.setVisible(true);
+            medicine_form.setVisible(false);
+            suplier_form.setVisible(false);
+            sell_medicine_form.setVisible(false);
+        } else if (event.getSource()==add_medicine_btn_3) {
+            dashboard_form.setVisible(false);
+            medicine_form.setVisible(true);
+            suplier_form.setVisible(false);
+            sell_medicine_form.setVisible(false);
+        } else if (event.getSource()==add_supplier_btn_3) {
+            dashboard_form.setVisible(false);
+            medicine_form.setVisible(false);
+            suplier_form.setVisible(true);
+            sell_medicine_form.setVisible(false);
+        } else if (event.getSource()==sell_medicine_btn_3) {
+            dashboard_form.setVisible(false);
+            medicine_form.setVisible(false);
+            suplier_form.setVisible(false);
+            sell_medicine_form.setVisible(true);
+        }
+    }
+//
+    String[]StatusList = {"Available,Unavailable"};
+    public void medicineStatusList(){
+        List<String> listStatus = new ArrayList<>();
+        for(String data: StatusList){
+            listStatus.add(data);
+        }
+        ObservableList listData = FXCollections.observableArrayList(listStatus);
+        medicine_status.setItems(listData);
 
     }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        medicineStatusList();
+
+    }
+
 }
