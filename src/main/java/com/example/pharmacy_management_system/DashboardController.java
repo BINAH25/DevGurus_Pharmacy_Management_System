@@ -19,10 +19,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 
 public class DashboardController implements Initializable {
@@ -365,14 +362,19 @@ public class DashboardController implements Initializable {
                 alert.showAndWait();
                 showAllSuppliers();
             // SET THE SUPPLIER FORM EMPTY
-                supplier_name.setText("");
-                suppler_id.setText("");
+                clearSupplierForm();
+
             }
 
         }catch (Exception e){
             e.printStackTrace();
         }
 
+    }
+    // METHOD TO CLEAR THE SUPPLIER FORM
+    public void clearSupplierForm (){
+        supplier_name.setText("");
+        suppler_id.setText("");
     }
     // METHOD TO GET ALL SUPPLIERS
     public ObservableList<Supplier> getAllSupplier(){
@@ -405,7 +407,7 @@ public class DashboardController implements Initializable {
         supplier_col_3.setCellValueFactory(new PropertyValueFactory<>("date"));
         supplier_table_view.setItems(supplierObservableList);
     }
-    //
+    // METHOD FOR SELECTING A SUPPLIER
     public void selectSupplier(){
         Supplier supplier = supplier_table_view.getSelectionModel().getSelectedItem();
         int num = supplier_table_view.getSelectionModel().getSelectedIndex();
@@ -413,6 +415,45 @@ public class DashboardController implements Initializable {
         if((num - 1) < -1) return;
         suppler_id.setText(String.valueOf(supplier.getSupplier_id()));
         supplier_name.setText(String.valueOf(supplier.getSupplier_name()));
+    }
+// METHOD FOR DELETING A SUPPLIER
+    public void deleteSupplier(){
+        connect = Database.connect();
+        try {
+
+            alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation  Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Are you sure you want to delete Student with ID:" + suppler_id.getText()+ "?");
+            Optional<ButtonType> option = alert.showAndWait();
+
+            if(option.get().equals(ButtonType.OK)){
+                String deleteData = "DELETE FROM supplier WHERE suppler_id = "+ suppler_id.getText();
+                prepare = connect.prepareStatement(deleteData);
+                prepare.executeUpdate();
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Supplier  Deleted Successfully");
+                alert.showAndWait();
+
+                // TO UPDATE THE TABLE VIEW
+                showAllSuppliers();
+                // TO CLEAR THE STUDENT FORM
+                clearSupplierForm();
+            }else{
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Information Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Action Cancelled..");
+                alert.showAndWait();
+            }
+
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

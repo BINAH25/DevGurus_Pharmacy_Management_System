@@ -448,7 +448,7 @@
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="57.0" layoutY="380.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="191.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Remove" textFill="WHITE">
+                                    <Button layoutX="57.0" layoutY="380.0" mnemonicParsing="false" onAction="#deleteSupplier" prefHeight="33.0" prefWidth="191.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Remove" textFill="WHITE">
                                        <font>
                                           <Font name="Arial Bold" size="13.0" />
                                        </font>
@@ -471,7 +471,7 @@
                                           <Font name="Arial Black" size="18.0" />
                                        </font>
                                     </Label>
-                                    <TableView fx:id="supplier_table_view" layoutX="18.0" layoutY="35.0" onMouseClicked="#selectSupplier" prefHeight="489.0" prefWidth="558.0">
+                                    <TableView fx:id="supplier_table_view" layoutX="18.0" layoutY="35.0" onMouseClicked="#selectSupplier" onSort="#clearSupplierForm" prefHeight="489.0" prefWidth="558.0">
                                       <columns>
                                         <TableColumn fx:id="supplier_col_1" prefWidth="156.0" text="Suplier ID" />
                                         <TableColumn fx:id="supplier_col_2" prefWidth="226.0" text="Suplier Name" />
