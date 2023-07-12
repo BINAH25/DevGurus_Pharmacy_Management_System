@@ -257,7 +257,7 @@
                                        </font>
                                     </Label>
                                     <TextField fx:id="medicine_id" layoutX="111.0" layoutY="54.0" promptText="Enter Medicine ID" />
-                                    <Label layoutX="272.0" layoutY="3.0" text="ADD MEDICINE/DRUG FORM" textFill="#26652f">
+                                    <Label layoutX="348.0" layoutY="3.0" text="ADD MEDICINE/DRUG FORM" textFill="#26652f">
                                        <font>
                                           <Font name="Arial Black" size="18.0" />
                                        </font>
@@ -307,7 +307,7 @@
                                           <Font name="Arial Bold" size="13.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="clear_medicine_form" layoutX="422.0" layoutY="156.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="88.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Clear" textFill="WHITE">
+                                    <Button fx:id="clear_medicine_form" layoutX="422.0" layoutY="156.0" mnemonicParsing="false" onAction="#clear_medicine_form" prefHeight="26.0" prefWidth="88.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Clear" textFill="WHITE">
                                        <font>
                                           <Font name="Arial Bold" size="13.0" />
                                        </font>
@@ -333,7 +333,7 @@
                                     </TableView>
                                     <TextField layoutX="10.0" layoutY="7.0" prefHeight="33.0" prefWidth="254.0" promptText="Search" styleClass="search" stylesheets="@dashboard.css" />
                                     <FontAwesomeIcon glyphName="SEARCH" layoutX="16.0" layoutY="30.0" size="1.5em" />
-                                    <Label layoutX="301.0" layoutY="6.0" text="ALL MEDICINES/DRUGS LISTS FORM">
+                                    <Label layoutX="301.0" layoutY="6.0" text="ALL MEDICINES/DRUGS LISTS FORM" textFill="#26652f">
                                        <font>
                                           <Font name="Arial Black" size="18.0" />
                                        </font>

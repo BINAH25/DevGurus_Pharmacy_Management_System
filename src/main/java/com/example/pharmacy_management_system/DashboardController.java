@@ -542,12 +542,22 @@ public class DashboardController implements Initializable {
                 alert.setHeaderText(null);
                 alert.setContentText("Medicine Added  Successfully");
                 alert.showAndWait();
+                clear_medicine_form();
             }
 
         }catch (Exception e){
             e.printStackTrace();
         }
 
+    }
+    // METHOD TO CLEAR THE MEDICINE FORM AFTER ADDING A MEDICINE
+    public void clear_medicine_form(){
+        medicine_id.setText("");
+        medicine_name.setText("");
+        medicine_price.setText("");
+        medicine_category.getSelectionModel().clearSelection();
+        medicine_supplier.getSelectionModel().clearSelection();
+        medicine_status.getSelectionModel().clearSelection();
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
