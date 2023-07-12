@@ -396,7 +396,7 @@ public class DashboardController implements Initializable {
         }
         return  suppliers;
     }
-
+// METHOD FOR DISPLAYING SUPPLIERS ON THE ON THE SUPPLIER TABLEVIEW
     ObservableList<Supplier> supplierObservableList;
     public void showAllSuppliers(){
         supplierObservableList = getAllSupplier();
@@ -404,6 +404,15 @@ public class DashboardController implements Initializable {
         supplier_col_2.setCellValueFactory(new PropertyValueFactory<>("supplier_name"));
         supplier_col_3.setCellValueFactory(new PropertyValueFactory<>("date"));
         supplier_table_view.setItems(supplierObservableList);
+    }
+    //
+    public void selectSupplier(){
+        Supplier supplier = supplier_table_view.getSelectionModel().getSelectedItem();
+        int num = supplier_table_view.getSelectionModel().getSelectedIndex();
+
+        if((num - 1) < -1) return;
+        suppler_id.setText(String.valueOf(supplier.getSupplier_id()));
+        supplier_name.setText(String.valueOf(supplier.getSupplier_name()));
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
