@@ -272,8 +272,8 @@ public class DashboardController implements Initializable {
             sell_medicine_form.setVisible(true);
         }
     }
-//
-    String[]StatusList = {"Available,Unavailable"};
+// METHOD TO FILL THE STATUS COMBO
+    String[]StatusList = {"Available","Unavailable"};
     public void medicineStatusList(){
         List<String> listStatus = new ArrayList<>();
         for(String data: StatusList){
@@ -283,9 +283,29 @@ public class DashboardController implements Initializable {
         medicine_status.setItems(listData);
 
     }
+    // METHOD TO FILL THE MEDICINE CATEGORY COMBO
+    String[] Category = {
+            "Analgesics and Pain Relief",
+            "Cold and Flu",
+            "Allergy and Asthma",
+            "Vitamins and Supplements",
+            "Antibiotics",
+            "Antipyretics",
+            "Antiemetics"
+    };
+
+    public void medicineCategory(){
+        List<String> categoryList = new ArrayList<>();
+        for(String data:Category){
+            categoryList.add(data);
+        }
+        ObservableList listData = FXCollections.observableArrayList(categoryList);
+        medicine_category.setItems(listData);
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         medicineStatusList();
+        medicineCategory();
 
     }
 

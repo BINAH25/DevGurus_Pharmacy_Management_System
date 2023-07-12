@@ -257,7 +257,7 @@
                                        </font>
                                     </Label>
                                     <TextField fx:id="medicine_id" layoutX="111.0" layoutY="54.0" promptText="Enter Medicine ID" />
-                                    <Label layoutX="272.0" layoutY="8.0" text="ADD MEDICINE/DRUG FORM">
+                                    <Label layoutX="272.0" layoutY="3.0" text="ADD MEDICINE/DRUG FORM" textFill="#26652f">
                                        <font>
                                           <Font name="Arial Black" size="18.0" />
                                        </font>
@@ -279,7 +279,7 @@
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox fx:id="medicine_category" layoutX="408.0" layoutY="104.0" prefHeight="26.0" prefWidth="163.0" promptText="select Category..." />
+                                    <ComboBox fx:id="medicine_category" layoutX="408.0" layoutY="104.0" onAction="#medicineCategory" prefHeight="26.0" prefWidth="163.0" promptText="select Category..." />
                                     <Label layoutX="580.0" layoutY="55.0" text="Medicine Price:">
                                        <font>
                                           <Font name="Arial Bold" size="15.0" />
