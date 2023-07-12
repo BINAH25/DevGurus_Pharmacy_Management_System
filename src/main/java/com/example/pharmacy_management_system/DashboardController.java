@@ -18,6 +18,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -329,6 +330,11 @@ public class DashboardController implements Initializable {
                 prepare = connect.prepareStatement(sql);
                 prepare.setString(1,suppler_id.getText());
                 prepare.setString(2,supplier_name.getText());
+                // GETTING THE DATE
+                Date date = new Date();
+                java.sql.Date sqldate = new java.sql.Date(date.getTime());
+                prepare.setString(3, String.valueOf(sqldate));
+
                 prepare.executeUpdate();
                 alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("success Message");
