@@ -18,7 +18,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacy_management_system.DashboardController">
    <children>
       <AnchorPane fx:id="dashboard_form" prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -67,7 +67,7 @@
                                     <FontAwesomeIcon fill="WHITE" glyphName="MONEY" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="logout_btn" layoutX="15.0" layoutY="486.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="48.0" styleClass="add-btn" stylesheets="@dashboard.css">
+                              <Button fx:id="logout_btn" layoutX="15.0" layoutY="486.0" mnemonicParsing="false" onAction="#logout" prefHeight="34.0" prefWidth="48.0" styleClass="add-btn" stylesheets="@dashboard.css">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" size="1.5em" />
                                  </graphic>
@@ -225,7 +225,7 @@
                                     <FontAwesomeIcon fill="WHITE" glyphName="MONEY" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="logout_btn_1" layoutX="15.0" layoutY="486.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="48.0" styleClass="add-btn" stylesheets="@dashboard.css">
+                              <Button fx:id="logout_btn_1" layoutX="15.0" layoutY="486.0" mnemonicParsing="false" onAction="#logout" prefHeight="34.0" prefWidth="48.0" styleClass="add-btn" stylesheets="@dashboard.css">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" size="1.5em" />
                                  </graphic>
@@ -395,7 +395,7 @@
                                     <FontAwesomeIcon fill="WHITE" glyphName="MONEY" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="logout_btn_2" layoutX="15.0" layoutY="486.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="48.0" styleClass="add-btn" stylesheets="@dashboard.css">
+                              <Button fx:id="logout_btn_2" layoutX="15.0" layoutY="486.0" mnemonicParsing="false" onAction="#logout" prefHeight="34.0" prefWidth="48.0" styleClass="add-btn" stylesheets="@dashboard.css">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" size="1.5em" />
                                  </graphic>
@@ -535,7 +535,7 @@
                                     <FontAwesomeIcon fill="WHITE" glyphName="MONEY" size="1.5em" />
                                  </graphic>
                               </Button>
-                              <Button fx:id="logout_btn_3" layoutX="15.0" layoutY="486.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="48.0" styleClass="add-btn" stylesheets="@dashboard.css">
+                              <Button fx:id="logout_btn_3" layoutX="15.0" layoutY="486.0" mnemonicParsing="false" onAction="#logout" prefHeight="34.0" prefWidth="48.0" styleClass="add-btn" stylesheets="@dashboard.css">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" size="1.5em" />
                                  </graphic>

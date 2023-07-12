@@ -17,6 +17,7 @@ public class HelloApplication extends Application {
         stage.setTitle("ADMIN LOGIN PAGE");
         stage.setScene(scene);
         stage.show();
+
     }
 
     public static void main(String[] args) {
