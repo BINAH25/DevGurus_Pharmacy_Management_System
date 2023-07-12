@@ -437,7 +437,7 @@
                                           <Font name="Arial Bold" size="13.0" />
                                        </font>
                                     </Button>
-                                    <Button layoutX="57.0" layoutY="328.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="191.0" styleClass="nav" stylesheets="@dashboard.css" text="Update" textFill="WHITE">
+                                    <Button layoutX="57.0" layoutY="328.0" mnemonicParsing="false" onAction="#updateSupplier" prefHeight="33.0" prefWidth="191.0" styleClass="nav" stylesheets="@dashboard.css" text="Update" textFill="WHITE">
                                        <font>
                                           <Font name="Arial Bold" size="13.0" />
                                        </font>

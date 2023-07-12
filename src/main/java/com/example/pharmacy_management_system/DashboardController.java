@@ -455,12 +455,43 @@ public class DashboardController implements Initializable {
             e.printStackTrace();
         }
     }
+    //
+    public void updateSupplier() {
+        connect = Database.connect();
+        try {
+            if (suppler_id.getText().isEmpty() || supplier_name.getText().isEmpty()) {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Please fill all the blanks fields ");
+                alert.showAndWait();
+            } else {
+                String updateData = "UPDATE supplier SET "
+                        + "supplier_name = '" + supplier_name.getText()
+                        + "'WHERE suppler_id = " + suppler_id.getText();
+                prepare = connect.prepareStatement(updateData);
+                prepare.executeUpdate();
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Supplier Name Updated Successfully");
+                alert.showAndWait();
+
+                // TO UPDATE THE TABLE VIEW
+                showAllSuppliers();
+                // TO CLEAR THE STUDENT FORM
+                clearSupplierForm();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        medicineStatusList();
-        medicineCategory();
-        showAllSuppliers();
-
+    medicineStatusList();
+    medicineCategory();
+    showAllSuppliers();
     }
 
 }
