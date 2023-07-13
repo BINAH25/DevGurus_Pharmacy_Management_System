@@ -1,4 +1,5 @@
 package com.example.pharmacy_management_system;
+import com.example.pharmacy_management_system.Data.Medicine;
 import com.example.pharmacy_management_system.Data.Supplier;
 import com.example.pharmacy_management_system.Database;
 import javafx.collections.FXCollections;
@@ -84,25 +85,25 @@ public class DashboardController implements Initializable {
     private ComboBox<?> medicine_category;
 
     @FXML
-    private TableColumn<?, ?> medicine_col_1;
+    private TableColumn<Medicine, String> medicine_col_1;
 
     @FXML
-    private TableColumn<?, ?> medicine_col_2;
+    private TableColumn<Medicine, String> medicine_col_2;
 
     @FXML
-    private TableColumn<?, ?> medicine_col_3;
+    private TableColumn<Medicine, String> medicine_col_3;
 
     @FXML
-    private TableColumn<?, ?> medicine_col_4;
+    private TableColumn<Medicine, String> medicine_col_4;
 
     @FXML
-    private TableColumn<?, ?> medicine_col_5;
+    private TableColumn<Medicine, String> medicine_col_5;
 
     @FXML
-    private TableColumn<?, ?> medicine_col_6;
+    private TableColumn<Medicine, String> medicine_col_6;
 
     @FXML
-    private TableColumn<?, ?> medicine_col_7;
+    private TableColumn<Medicine, String> medicine_col_7;
 
     @FXML
     private AnchorPane medicine_form;
@@ -123,7 +124,7 @@ public class DashboardController implements Initializable {
     private ComboBox<?> medicine_supplier;
 
     @FXML
-    private TableView<?> medicine_table_view;
+    private TableView<Medicine> medicine_table_view;
 
     @FXML
     private Button remove_medicine;
@@ -219,6 +220,7 @@ public class DashboardController implements Initializable {
             medicine_form.setVisible(true);
             suplier_form.setVisible(false);
             sell_medicine_form.setVisible(false);
+            show_all_medicine();
         } else if (event.getSource()==add_supplier_btn) {
             dashboard_form.setVisible(false);
             medicine_form.setVisible(false);
@@ -242,6 +244,7 @@ public class DashboardController implements Initializable {
             medicine_form.setVisible(true);
             suplier_form.setVisible(false);
             sell_medicine_form.setVisible(false);
+            show_all_medicine();
         } else if (event.getSource()==add_supplier_btn_1) {
             dashboard_form.setVisible(false);
             medicine_form.setVisible(false);
@@ -265,6 +268,7 @@ public class DashboardController implements Initializable {
             medicine_form.setVisible(true);
             suplier_form.setVisible(false);
             sell_medicine_form.setVisible(false);
+            show_all_medicine();
         } else if (event.getSource()==add_supplier_btn_2) {
             dashboard_form.setVisible(false);
             medicine_form.setVisible(false);
@@ -288,6 +292,7 @@ public class DashboardController implements Initializable {
             medicine_form.setVisible(true);
             suplier_form.setVisible(false);
             sell_medicine_form.setVisible(false);
+            show_all_medicine();
         } else if (event.getSource()==add_supplier_btn_3) {
             dashboard_form.setVisible(false);
             medicine_form.setVisible(false);
@@ -559,12 +564,54 @@ public class DashboardController implements Initializable {
         medicine_supplier.getSelectionModel().clearSelection();
         medicine_status.getSelectionModel().clearSelection();
     }
+
+    //METHOD TO GET ALL MEDICINE
+    ObservableList<Medicine> getAllMedicine(){
+        ObservableList<Medicine> medicines = FXCollections.observableArrayList();
+        String sql = "SELECT * FROM medicine";
+        try {
+            connect = Database.connect();
+            prepare = connect.prepareStatement(sql);
+            result = prepare.executeQuery();
+            Medicine medicine;
+            while (result.next()){
+                medicine = new Medicine(
+                        result.getString("medicine_id"),
+                        result.getString("medicine_name"),
+                        result.getDouble("medicine_price"),
+                        result.getString("category"),
+                        result.getString("supplier"),
+                        result.getString("status"),
+                        result.getDate("date")
+                );
+                medicines.add(medicine);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return medicines;
+    }
+    // METHOD TO DISPLAY ALL MEDICINES
+    ObservableList<Medicine> medicineObservableList;
+    public void show_all_medicine(){
+        medicineObservableList = getAllMedicine();
+        medicine_col_1.setCellValueFactory(new PropertyValueFactory<>("medicine_id"));
+        medicine_col_2.setCellValueFactory(new PropertyValueFactory<>("medicine_name"));
+        medicine_col_3.setCellValueFactory(new PropertyValueFactory<>("medicine_price"));
+        medicine_col_4.setCellValueFactory(new PropertyValueFactory<>("supplier"));
+        medicine_col_5.setCellValueFactory(new PropertyValueFactory<>("category"));
+        medicine_col_6.setCellValueFactory(new PropertyValueFactory<>("status"));
+        medicine_col_7.setCellValueFactory(new PropertyValueFactory<>("date"));
+        medicine_table_view.setItems(medicineObservableList);
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     medicineStatusList();
     medicineCategory();
     showAllSuppliers();
     medecineCategoryList();
+    show_all_medicine();
     }
 
 }

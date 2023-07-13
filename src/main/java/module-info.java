@@ -18,4 +18,8 @@ module com.example.pharmacy_management_system {
     exports com.example.pharmacy_management_system;
     opens com.example.pharmacy_management_system.Data to javafx.fxml;
     exports com.example.pharmacy_management_system.Data;
+    //opens com.example.pharmacy_management_system.Database to javafx.fxml;
+    //exports com.example.pharmacy_management_system.Database;
+
+
 }
