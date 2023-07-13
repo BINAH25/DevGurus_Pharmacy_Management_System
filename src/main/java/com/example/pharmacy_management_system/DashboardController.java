@@ -548,6 +548,7 @@ public class DashboardController implements Initializable {
                 alert.setContentText("Medicine Added  Successfully");
                 alert.showAndWait();
                 clear_medicine_form();
+                show_all_medicine();
             }
 
         }catch (Exception e){
@@ -604,6 +605,54 @@ public class DashboardController implements Initializable {
         medicine_col_6.setCellValueFactory(new PropertyValueFactory<>("status"));
         medicine_col_7.setCellValueFactory(new PropertyValueFactory<>("date"));
         medicine_table_view.setItems(medicineObservableList);
+    }
+    public void select_medicine(){
+        Medicine medicine = medicine_table_view.getSelectionModel().getSelectedItem();
+        int num = medicine_table_view.getSelectionModel().getSelectedIndex();
+
+        if((num - 1) < -1) return;
+        medicine_id.setText(String.valueOf(medicine.getMedicine_id()));
+        medicine_name.setText(String.valueOf(medicine.getMedicine_name()));
+        medicine_price.setText(String.valueOf(medicine.getMedicine_price()));
+    }
+    // METHOD FOR DELETING A SUPPLIER
+    public void delete_medicine(){
+        connect = Database.connect();
+        try {
+
+            alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation  Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Are you sure you want to delete Student with ID:" + medicine_id.getText()+ "?");
+            Optional<ButtonType> option = alert.showAndWait();
+
+            if(option.get().equals(ButtonType.OK)){
+                String deleteData = "DELETE FROM medicine WHERE medicine_id = "+ medicine_id.getText();
+                prepare = connect.prepareStatement(deleteData);
+                prepare.executeUpdate();
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Medicine  Deleted Successfully");
+                alert.showAndWait();
+
+                // TO UPDATE THE TABLE VIEW
+                show_all_medicine();
+                // TO CLEAR THE STUDENT FORM
+                clear_medicine_form();
+            }else{
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Information Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Action Cancelled..");
+                alert.showAndWait();
+            }
+
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
