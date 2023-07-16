@@ -1,4 +1,5 @@
 package com.example.pharmacy_management_system;
+import com.example.pharmacy_management_system.Data.Custermer;
 import com.example.pharmacy_management_system.Data.Medicine;
 import com.example.pharmacy_management_system.Data.Supplier;
 import com.example.pharmacy_management_system.Database;
@@ -20,6 +21,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.*;
 
 
@@ -831,6 +833,68 @@ public class DashboardController implements Initializable {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+    //
+    private  int customer_id;
+    Statement statement;
+    public void customerId(){
+        String sql = "SELECT customer_id FROM customer";
+        int checkId = 0;
+
+        try {
+            connect = Database.connect();
+            prepare = connect.prepareStatement(sql);
+            result = prepare.executeQuery();
+
+            while (result.next()){
+                customer_id = result.getInt("customer_id");
+            }
+            String checkData = "SELECT * FROM customer_info";
+            statement = connect.createStatement();
+            result = statement.executeQuery(checkData);
+
+            while (result.next()){
+                checkId = result.getInt("customer_id");
+            }
+
+            if(customer_id == 0){
+                customer_id += 1;
+            } else if (checkId == customer_id) {
+                customer_id += 1;
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    //
+    public ObservableList<Custermer> get_all_medicine_in_card (){
+        customerId();
+        ObservableList<Custermer> listData = FXCollections.observableArrayList();
+        String sql = "SELECT * FROM customer WHERE customer_id = '"+customer_id+"'";
+        connect = Database.connect();
+        try {
+            prepare = connect.prepareStatement(sql);
+            result = prepare.executeQuery();
+            Custermer customers;
+
+            while (result.next()){
+                customers = new Custermer(
+                        result.getInt("customer_id"),
+                        result.getString("category"),
+                        result.getString("medicine_id"),
+                        result.getString("supplier"),
+                        result.getString("medicine_name"),
+                        result.getInt("quantity"),
+                        result.getDouble("price"),
+                        result.getDate("date")
+                );
+                listData.add(customers);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return listData;
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
