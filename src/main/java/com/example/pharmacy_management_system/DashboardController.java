@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.scene.control.Spinner;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
@@ -170,31 +171,31 @@ public class DashboardController implements Initializable {
     @FXML
     private Label balance;
     @FXML
-    private Spinner<?> quantity;
+    private Spinner<Integer> quantity;
     @FXML
     private Label total;
     @FXML
     private ComboBox<?> sell_category;
     @FXML
-    private TableView<?> sell_table_view;
+    private TableView<Custermer> sell_table_view;
 
     @FXML
-    private TableColumn<?, ?> sell_col_1;
+    private TableColumn<Custermer, String> sell_col_1;
 
     @FXML
-    private TableColumn<?, ?> sell_col_2;
+    private TableColumn<Custermer, String> sell_col_2;
 
     @FXML
-    private TableColumn<?, ?> sell_col_3;
+    private TableColumn<Custermer, String> sell_col_3;
 
     @FXML
-    private TableColumn<?, ?> sell_col_4;
+    private TableColumn<Custermer, String> sell_col_4;
 
     @FXML
-    private TableColumn<?, ?> sell_col_5;
+    private TableColumn<Custermer, String> sell_col_5;
 
     @FXML
-    private TableColumn<?, ?> sell_col_6;
+    private TableColumn<Custermer, String> sell_col_6;
     @FXML
     private ComboBox<?> sell_medicine_id;
 
@@ -278,6 +279,7 @@ public class DashboardController implements Initializable {
             get_sell_medicine_id();
             get_sell_supplier();
             get_sell_medicine_name();
+            show_all_sell_medicine();
 
             // SECOND OPTIONS
         } else if (event.getSource()==dashboard_btn_1) {
@@ -307,6 +309,7 @@ public class DashboardController implements Initializable {
             get_sell_medicine_id();
             get_sell_supplier();
             get_sell_medicine_name();
+            show_all_sell_medicine();
 
             // THIRD OPTIONS
         } else if (event.getSource()==dashboard_btn_2) {
@@ -336,6 +339,7 @@ public class DashboardController implements Initializable {
             get_sell_medicine_id();
             get_sell_supplier();
             get_sell_medicine_name();
+            show_all_sell_medicine();
 
             // LAST OPTIONS
         } else if (event.getSource()==dashboard_btn_3) {
@@ -365,6 +369,7 @@ public class DashboardController implements Initializable {
             get_sell_medicine_id();
             get_sell_supplier();
             get_sell_medicine_name();
+            show_all_sell_medicine();
 
         }
     }
@@ -896,6 +901,34 @@ public class DashboardController implements Initializable {
         }
         return listData;
     }
+    //
+    private ObservableList<Custermer> custermerObservableList;
+
+    public void show_all_sell_medicine (){
+        custermerObservableList = get_all_medicine_in_card();
+        sell_col_1.setCellValueFactory(new PropertyValueFactory<>("category"));
+        sell_col_2.setCellValueFactory(new PropertyValueFactory<>("medicine_id"));
+        sell_col_3.setCellValueFactory(new PropertyValueFactory<>("supplier"));
+        sell_col_4.setCellValueFactory(new PropertyValueFactory<>("medicine_name"));
+        sell_col_5.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        sell_col_6.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+        sell_table_view.setItems(custermerObservableList);
+        //diaplayTotalPrice();
+    }
+
+    //
+    private SpinnerValueFactory<Integer> spinner;
+    public void getSpinner(){
+        spinner = new SpinnerValueFactory.IntegerSpinnerValueFactory(0,10,0);
+        quantity.setValueFactory(spinner);
+    }
+    // METHOD TO SET THE SPINNER VALUE
+
+    int qty;
+    public void sell_Spinner(){
+        qty = quantity.getValue();
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     medicineStatusList();
@@ -907,6 +940,7 @@ public class DashboardController implements Initializable {
     get_sell_medicine_id();
     get_sell_supplier();
     get_sell_medicine_name();
+    show_all_sell_medicine();
 
 
     }
