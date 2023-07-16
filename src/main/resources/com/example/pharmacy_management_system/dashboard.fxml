@@ -583,13 +583,13 @@
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox fx:id="sell_supplier" layoutX="122.0" layoutY="124.0" prefWidth="150.0" promptText="Choose Suplier..." />
+                                    <ComboBox fx:id="sell_supplier" layoutX="122.0" layoutY="124.0" onAction="#get_sell_supplier" prefWidth="150.0" promptText="Choose Suplier..." />
                                     <Label layoutX="4.0" layoutY="168.0" prefHeight="29.0" prefWidth="117.0" text="Medicine Name:">
                                        <font>
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox fx:id="sell_medicine_name" layoutX="123.0" layoutY="168.0" prefWidth="150.0" promptText="Choose Medine Name..." />
+                                    <ComboBox fx:id="sell_medicine_name" layoutX="123.0" layoutY="168.0" onAction="#get_sell_medicine_name" prefWidth="150.0" promptText="Choose Medine Name..." />
                                     <Spinner fx:id="quantity" layoutX="126.0" layoutY="209.0" prefHeight="26.0" prefWidth="146.0" />
                                     <Label layoutX="50.0" layoutY="206.0" prefHeight="29.0" prefWidth="72.0" text="Quantity:">
                                        <font>

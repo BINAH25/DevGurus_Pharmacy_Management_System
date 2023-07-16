@@ -275,6 +275,7 @@ public class DashboardController implements Initializable {
             sell_category();
             get_sell_medicine_id();
             get_sell_supplier();
+            get_sell_medicine_name();
 
             // SECOND OPTIONS
         } else if (event.getSource()==dashboard_btn_1) {
@@ -303,6 +304,7 @@ public class DashboardController implements Initializable {
             sell_category();
             get_sell_medicine_id();
             get_sell_supplier();
+            get_sell_medicine_name();
 
             // THIRD OPTIONS
         } else if (event.getSource()==dashboard_btn_2) {
@@ -331,6 +333,7 @@ public class DashboardController implements Initializable {
             sell_category();
             get_sell_medicine_id();
             get_sell_supplier();
+            get_sell_medicine_name();
 
             // LAST OPTIONS
         } else if (event.getSource()==dashboard_btn_3) {
@@ -359,6 +362,7 @@ public class DashboardController implements Initializable {
             sell_category();
             get_sell_medicine_id();
             get_sell_supplier();
+            get_sell_medicine_name();
 
         }
     }
@@ -804,6 +808,25 @@ public class DashboardController implements Initializable {
                 observableList.add(result.getString("supplier"));
                 sell_supplier.setItems(observableList);
             }
+            get_sell_medicine_name();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    //
+    public void get_sell_medicine_name(){
+        String sql = "SELECT * FROM medicine WHERE supplier = '"+ sell_supplier.getSelectionModel().getSelectedItem()+"'";
+        try {
+            connect = Database.connect();
+            prepare = connect.prepareStatement(sql);
+            result = prepare.executeQuery();
+
+            ObservableList observableList = FXCollections.observableArrayList();
+            while (result.next()){
+                observableList.add(result.getString("medicine_name"));
+                sell_medicine_name.setItems(observableList);
+            }
 
         }catch (Exception e){
             e.printStackTrace();
@@ -819,6 +842,8 @@ public class DashboardController implements Initializable {
     sell_category();
     get_sell_medicine_id();
     get_sell_supplier();
+    get_sell_medicine_name();
+
 
     }
 }
