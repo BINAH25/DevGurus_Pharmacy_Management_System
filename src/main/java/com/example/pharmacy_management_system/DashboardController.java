@@ -161,7 +161,7 @@ public class DashboardController implements Initializable {
 
     @FXML
     private TableColumn<Supplier, String> supplier_col_3;
-    // *************** PURCHASE MEDICINE START **********************
+    // ************************* PURCHASE MEDICINE START **********************
     @FXML
     private TextField amount;
 
@@ -272,6 +272,7 @@ public class DashboardController implements Initializable {
             medicine_form.setVisible(false);
             suplier_form.setVisible(false);
             sell_medicine_form.setVisible(true);
+            sell_category();
             // SECOND OPTIONS
         } else if (event.getSource()==dashboard_btn_1) {
             dashboard_form.setVisible(true);
@@ -296,6 +297,7 @@ public class DashboardController implements Initializable {
             medicine_form.setVisible(false);
             suplier_form.setVisible(false);
             sell_medicine_form.setVisible(true);
+            sell_category();
             // THIRD OPTIONS
         } else if (event.getSource()==dashboard_btn_2) {
             dashboard_form.setVisible(true);
@@ -320,6 +322,7 @@ public class DashboardController implements Initializable {
             medicine_form.setVisible(false);
             suplier_form.setVisible(false);
             sell_medicine_form.setVisible(true);
+            sell_category();
             // LAST OPTIONS
         } else if (event.getSource()==dashboard_btn_3) {
             dashboard_form.setVisible(true);
@@ -344,6 +347,7 @@ public class DashboardController implements Initializable {
             medicine_form.setVisible(false);
             suplier_form.setVisible(false);
             sell_medicine_form.setVisible(true);
+            sell_category();
         }
     }
 // METHOD TO FILL THE STATUS COMBO
@@ -735,6 +739,26 @@ public class DashboardController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    // **************************** SELL MEDICINE CONTROLLER START *************************************
+    //
+    public void sell_category(){
+        String sql = "SELECT category FROM medicine WHERE status = 'Available'";
+        try {
+            connect = Database.connect();
+            prepare = connect.prepareStatement(sql);
+            result = prepare.executeQuery();
+
+            ObservableList list_data = FXCollections.observableArrayList();
+            while(result.next()){
+                list_data.add(result.getString("category"));
+            }
+            sell_category.setItems(list_data);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     medicineStatusList();
@@ -742,5 +766,6 @@ public class DashboardController implements Initializable {
     showAllSuppliers();
     medecineCategoryList();
     show_all_medicine();
+    sell_category();
     }
 }
