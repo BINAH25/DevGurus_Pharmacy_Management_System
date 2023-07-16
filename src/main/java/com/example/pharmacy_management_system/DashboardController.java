@@ -606,6 +606,7 @@ public class DashboardController implements Initializable {
         medicine_col_7.setCellValueFactory(new PropertyValueFactory<>("date"));
         medicine_table_view.setItems(medicineObservableList);
     }
+    // METHOD TO SELECT A MEDICINE
     public void select_medicine(){
         Medicine medicine = medicine_table_view.getSelectionModel().getSelectedItem();
         int num = medicine_table_view.getSelectionModel().getSelectedIndex();
@@ -615,7 +616,7 @@ public class DashboardController implements Initializable {
         medicine_name.setText(String.valueOf(medicine.getMedicine_name()));
         medicine_price.setText(String.valueOf(medicine.getMedicine_price()));
     }
-    // METHOD FOR DELETING A SUPPLIER
+    // METHOD FOR DELETING A MEDICINE
     public void delete_medicine(){
         connect = Database.connect();
         try {
@@ -654,6 +655,47 @@ public class DashboardController implements Initializable {
             e.printStackTrace();
         }
     }
+    // METHOD TO UPDATE  MEDICINE
+    public void update_medicine() {
+        connect = Database.connect();
+        try {
+            if (medicine_id.getText().isEmpty()
+                    || medicine_name.getText().isEmpty()
+                    || medicine_price.getText().isEmpty()
+                    || medicine_category.getSelectionModel().getSelectedItem() == null
+                    || medicine_supplier.getSelectionModel().getSelectedItem() == null
+                    || medicine_status.getSelectionModel().getSelectedItem() == null) {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Please fill all the blanks fields ");
+                alert.showAndWait();
+            } else {
+                String updateData = "UPDATE medicine SET "
+                        + "medicine_name = '" + medicine_name.getText()
+                        + "medicine_price = '" + medicine_price.getText()
+                        + "',medicine_category = '" + medicine_category.getSelectionModel().getSelectedItem()
+                        + "',medicine_supplier = '" + medicine_supplier.getSelectionModel().getSelectedItem()
+                        + "',medicine_status = '" + medicine_status.getSelectionModel().getSelectedItem()
+                        + "'WHERE medicine_id = " + medicine_id.getText();
+                prepare = connect.prepareStatement(updateData);
+                prepare.executeUpdate();
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Medicine  Updated Successfully");
+                alert.showAndWait();
+
+                // TO UPDATE THE TABLE VIEW
+                    show_all_medicine();
+                // TO CLEAR THE MEDICINE FORM
+                    clear_medicine_form();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     medicineStatusList();
@@ -662,5 +704,4 @@ public class DashboardController implements Initializable {
     medecineCategoryList();
     show_all_medicine();
     }
-
 }
