@@ -273,6 +273,7 @@ public class DashboardController implements Initializable {
             suplier_form.setVisible(false);
             sell_medicine_form.setVisible(true);
             sell_category();
+            get_sell_medicine_id();
             // SECOND OPTIONS
         } else if (event.getSource()==dashboard_btn_1) {
             dashboard_form.setVisible(true);
@@ -298,6 +299,8 @@ public class DashboardController implements Initializable {
             suplier_form.setVisible(false);
             sell_medicine_form.setVisible(true);
             sell_category();
+            get_sell_medicine_id();
+
             // THIRD OPTIONS
         } else if (event.getSource()==dashboard_btn_2) {
             dashboard_form.setVisible(true);
@@ -323,6 +326,8 @@ public class DashboardController implements Initializable {
             suplier_form.setVisible(false);
             sell_medicine_form.setVisible(true);
             sell_category();
+            get_sell_medicine_id();
+
             // LAST OPTIONS
         } else if (event.getSource()==dashboard_btn_3) {
             dashboard_form.setVisible(true);
@@ -348,6 +353,8 @@ public class DashboardController implements Initializable {
             suplier_form.setVisible(false);
             sell_medicine_form.setVisible(true);
             sell_category();
+            get_sell_medicine_id();
+
         }
     }
 // METHOD TO FILL THE STATUS COMBO
@@ -754,6 +761,25 @@ public class DashboardController implements Initializable {
                 list_data.add(result.getString("category"));
             }
             sell_category.setItems(list_data);
+            get_sell_medicine_id();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    //
+    public void get_sell_medicine_id(){
+        String sql = "SELECT * FROM medicine WHERE category = '"+ sell_category.getSelectionModel().getSelectedItem()+"'";
+        try {
+            connect = Database.connect();
+            prepare = connect.prepareStatement(sql);
+            result = prepare.executeQuery();
+
+            ObservableList observableList = FXCollections.observableArrayList();
+            while (result.next()){
+                observableList.add(result.getString("medicine_id"));
+                sell_medicine_id.setItems(observableList);
+            }
 
         }catch (Exception e){
             e.printStackTrace();
@@ -767,5 +793,7 @@ public class DashboardController implements Initializable {
     medecineCategoryList();
     show_all_medicine();
     sell_category();
+    get_sell_medicine_id();
+
     }
 }

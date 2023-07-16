@@ -577,7 +577,7 @@
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox fx:id="sell_medicine_id" layoutX="122.0" layoutY="82.0" prefWidth="150.0" promptText="Choose Medicine ID..." />
+                                    <ComboBox fx:id="sell_medicine_id" layoutX="122.0" layoutY="82.0" onAction="#get_sell_medicine_id" prefWidth="150.0" promptText="Choose Medicine ID..." />
                                     <Label layoutX="52.0" layoutY="124.0" prefHeight="29.0" prefWidth="62.0" text="Suplier:">
                                        <font>
                                           <Font name="Arial Bold" size="15.0" />
