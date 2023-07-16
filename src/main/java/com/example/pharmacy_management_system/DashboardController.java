@@ -280,7 +280,7 @@ public class DashboardController implements Initializable {
             get_sell_supplier();
             get_sell_medicine_name();
             show_all_sell_medicine();
-
+            getSpinner();
             // SECOND OPTIONS
         } else if (event.getSource()==dashboard_btn_1) {
             dashboard_form.setVisible(true);
@@ -310,7 +310,7 @@ public class DashboardController implements Initializable {
             get_sell_supplier();
             get_sell_medicine_name();
             show_all_sell_medicine();
-
+            getSpinner();
             // THIRD OPTIONS
         } else if (event.getSource()==dashboard_btn_2) {
             dashboard_form.setVisible(true);
@@ -340,7 +340,7 @@ public class DashboardController implements Initializable {
             get_sell_supplier();
             get_sell_medicine_name();
             show_all_sell_medicine();
-
+            getSpinner();
             // LAST OPTIONS
         } else if (event.getSource()==dashboard_btn_3) {
             dashboard_form.setVisible(true);
@@ -370,7 +370,7 @@ public class DashboardController implements Initializable {
             get_sell_supplier();
             get_sell_medicine_name();
             show_all_sell_medicine();
-
+            getSpinner();
         }
     }
 // METHOD TO FILL THE STATUS COMBO
@@ -917,7 +917,7 @@ public class DashboardController implements Initializable {
         //diaplayTotalPrice();
     }
 
-    //
+    // 
     private SpinnerValueFactory<Integer> spinner;
     public void getSpinner(){
         spinner = new SpinnerValueFactory.IntegerSpinnerValueFactory(0,10,0);
@@ -929,6 +929,66 @@ public class DashboardController implements Initializable {
     public void sell_Spinner(){
         qty = quantity.getValue();
     }
+    //
+    public void Add_to_card(){
+        customerId();
+        String sql  = "INSERT INTO customer (customer_id,category,medicine_id,supplier,medicine_name,quantity,price,date) VALUES (?,?,?,?,?,?,?,?)";
+        connect = Database.connect();
+        try {
+            String checkData = "SELECT * FROM medicine WHERE medicine_name = '"
+                    +sell_medicine_name.getSelectionModel().getSelectedItem() +"'";
+
+            double price = 0;
+
+            statement = connect.createStatement();
+            result = statement.executeQuery(checkData);
+
+            if(result.next()){
+                price = result.getDouble("price");
+
+            }
+            double total = (price * qty);
+            if(
+                    sell_category.getSelectionModel().getSelectedItem() == null
+                    || sell_medicine_name.getSelectionModel().getSelectedItem() == null
+                    || sell_supplier.getSelectionModel().getSelectedItem() == null
+                    || sell_medicine_id.getSelectionModel().getSelectedItem() == null
+                    || total == 0
+            ){
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Please fill all blank fields");
+                alert.showAndWait();
+            }else{
+                prepare = connect.prepareStatement(sql);
+                prepare.setString(1,String.valueOf(customer_id));
+                prepare.setString(2,(String) sell_category.getSelectionModel().getSelectedItem());
+                prepare.setString(3,(String) sell_medicine_id.getSelectionModel().getSelectedItem());
+                prepare.setString(4,(String) sell_supplier.getSelectionModel().getSelectedItem());
+                prepare.setString(5,(String) sell_medicine_name.getSelectionModel().getSelectedItem());
+                prepare.setString(6,String.valueOf(qty));
+                prepare.setString(7,String.valueOf(total));
+
+                Date date = new Date();
+                java.sql.Date  sqldate = new java.sql.Date(date.getTime());
+                prepare.setString(8,String.valueOf(sqldate));
+                prepare.executeUpdate();
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Medicine Sold Successfully");
+                alert.showAndWait();
+                //diaplayTotalPrice();
+                show_all_sell_medicine();
+            }
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     medicineStatusList();
@@ -941,6 +1001,7 @@ public class DashboardController implements Initializable {
     get_sell_supplier();
     get_sell_medicine_name();
     show_all_sell_medicine();
+    getSpinner();
 
 
     }
