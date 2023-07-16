@@ -178,7 +178,7 @@
             </BorderPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="medicine_form" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
+      <AnchorPane fx:id="medicine_form" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" visible="false">
          <children>
             <BorderPane layoutX="246.0" layoutY="206.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <top>
@@ -488,7 +488,7 @@
             </BorderPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="sell_medicine_form" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+      <AnchorPane fx:id="sell_medicine_form" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
          <children>
             <BorderPane layoutX="246.0" layoutY="206.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <top>
@@ -571,38 +571,38 @@
                                           <Font name="Arial Black" size="16.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox layoutX="121.0" layoutY="45.0" prefWidth="150.0" promptText="Choose Cateogry..." />
+                                    <ComboBox fx:id="sell_category" layoutX="121.0" layoutY="45.0" prefWidth="150.0" promptText="Choose Cateogry..." />
                                     <Label layoutX="20.0" layoutY="82.0" prefHeight="29.0" prefWidth="92.0" text="Medicine ID:">
                                        <font>
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox layoutX="122.0" layoutY="82.0" prefWidth="150.0" promptText="Choose Medicine ID..." />
+                                    <ComboBox fx:id="sell_medicine_id" layoutX="122.0" layoutY="82.0" prefWidth="150.0" promptText="Choose Medicine ID..." />
                                     <Label layoutX="52.0" layoutY="124.0" prefHeight="29.0" prefWidth="62.0" text="Suplier:">
                                        <font>
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox layoutX="122.0" layoutY="124.0" prefWidth="150.0" promptText="Choose Suplier..." />
+                                    <ComboBox fx:id="sell_supplier" layoutX="122.0" layoutY="124.0" prefWidth="150.0" promptText="Choose Suplier..." />
                                     <Label layoutX="4.0" layoutY="168.0" prefHeight="29.0" prefWidth="117.0" text="Medicine Name:">
                                        <font>
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox layoutX="123.0" layoutY="168.0" prefWidth="150.0" promptText="Choose Medine Name..." />
-                                    <Spinner layoutX="126.0" layoutY="209.0" prefHeight="26.0" prefWidth="146.0" />
+                                    <ComboBox fx:id="sell_medicine_name" layoutX="123.0" layoutY="168.0" prefWidth="150.0" promptText="Choose Medine Name..." />
+                                    <Spinner fx:id="quantity" layoutX="126.0" layoutY="209.0" prefHeight="26.0" prefWidth="146.0" />
                                     <Label layoutX="50.0" layoutY="206.0" prefHeight="29.0" prefWidth="72.0" text="Quantity:">
                                        <font>
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
                                     <Button layoutX="177.0" layoutY="248.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="96.0" styleClass="nav" stylesheets="@dashboard.css" text="Add to Card" textFill="WHITE" />
-                                    <Label layoutX="55.0" layoutY="302.0" prefHeight="29.0" prefWidth="72.0" text="Quantity:">
+                                    <Label layoutX="55.0" layoutY="302.0" prefHeight="29.0" prefWidth="72.0" text="Total:">
                                        <font>
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="129.0" layoutY="302.0" prefHeight="29.0" prefWidth="72.0" text="\$0.0">
+                                    <Label fx:id="total" layoutX="129.0" layoutY="302.0" prefHeight="29.0" prefWidth="72.0" text="\$0.0">
                                        <font>
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
@@ -612,13 +612,13 @@
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="123.0" layoutY="341.0" prefHeight="26.0" prefWidth="151.0" promptText="\$0.0" />
+                                    <TextField fx:id="amount" layoutX="123.0" layoutY="341.0" prefHeight="26.0" prefWidth="151.0" promptText="\$0.0" />
                                     <Label layoutX="56.0" layoutY="378.0" prefHeight="29.0" prefWidth="72.0" text="Balance:">
                                        <font>
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="130.0" layoutY="378.0" prefHeight="29.0" prefWidth="72.0" text="\$0.0">
+                                    <Label fx:id="balance" layoutX="130.0" layoutY="378.0" prefHeight="29.0" prefWidth="72.0" text="\$0.0">
                                        <font>
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
@@ -638,14 +638,14 @@
                                           <Font name="Arial Black" size="18.0" />
                                        </font>
                                     </Label>
-                                    <TableView layoutX="4.0" layoutY="34.0" prefHeight="483.0" prefWidth="578.0">
+                                    <TableView fx:id="sell_table_view" layoutX="4.0" layoutY="34.0" prefHeight="483.0" prefWidth="578.0">
                                       <columns>
-                                        <TableColumn prefWidth="99.0" text="Category" />
-                                        <TableColumn prefWidth="87.0" text="Medicine ID" />
-                                          <TableColumn prefWidth="104.0" text="Suplier" />
-                                          <TableColumn prefWidth="128.0" text="Medicine Name" />
-                                          <TableColumn prefWidth="88.0" text="Quantity" />
-                                          <TableColumn prefWidth="70.0" text="Price" />
+                                        <TableColumn fx:id="sell_col_1" prefWidth="99.0" text="Category" />
+                                        <TableColumn fx:id="sell_col_2" prefWidth="87.0" text="Medicine ID" />
+                                          <TableColumn fx:id="sell_col_3" prefWidth="104.0" text="Suplier" />
+                                          <TableColumn fx:id="sell_col_4" prefWidth="128.0" text="Medicine Name" />
+                                          <TableColumn fx:id="sell_col_5" prefWidth="88.0" text="Quantity" />
+                                          <TableColumn fx:id="sell_col_6" prefWidth="70.0" text="Price" />
                                       </columns>
                                     </TableView>
                                  </children>

@@ -161,7 +161,46 @@ public class DashboardController implements Initializable {
 
     @FXML
     private TableColumn<Supplier, String> supplier_col_3;
+    // *************** PURCHASE MEDICINE START **********************
+    @FXML
+    private TextField amount;
 
+    @FXML
+    private Label balance;
+    @FXML
+    private Spinner<?> quantity;
+    @FXML
+    private Label total;
+    @FXML
+    private ComboBox<?> sell_category;
+    @FXML
+    private TableView<?> sell_table_view;
+
+    @FXML
+    private TableColumn<?, ?> sell_col_1;
+
+    @FXML
+    private TableColumn<?, ?> sell_col_2;
+
+    @FXML
+    private TableColumn<?, ?> sell_col_3;
+
+    @FXML
+    private TableColumn<?, ?> sell_col_4;
+
+    @FXML
+    private TableColumn<?, ?> sell_col_5;
+
+    @FXML
+    private TableColumn<?, ?> sell_col_6;
+    @FXML
+    private ComboBox<?> sell_medicine_id;
+
+    @FXML
+    private ComboBox<?> sell_medicine_name;
+
+    @FXML
+    private ComboBox<?> sell_supplier;
 
     @FXML
     private TableView<Supplier> supplier_table_view;
