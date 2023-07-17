@@ -16,7 +16,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.scene.control.Spinner;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -27,9 +26,6 @@ import java.util.*;
 
 
 public class DashboardController implements Initializable {
-    @FXML
-    private Button add_medicine;
-
     @FXML
     private Button add_medicine_btn;
 
@@ -55,9 +51,6 @@ public class DashboardController implements Initializable {
     private Button add_supplier_btn_3;
 
     @FXML
-    private Button clear_medicine_form;
-
-    @FXML
     private Button dashboard_btn;
 
     @FXML
@@ -71,18 +64,6 @@ public class DashboardController implements Initializable {
 
     @FXML
     private AnchorPane dashboard_form;
-
-    @FXML
-    private Button logout_btn;
-
-    @FXML
-    private Button logout_btn_1;
-
-    @FXML
-    private Button logout_btn_2;
-
-    @FXML
-    private Button logout_btn_3;
 
     @FXML
     private ComboBox<?> medicine_category;
@@ -129,8 +110,6 @@ public class DashboardController implements Initializable {
     @FXML
     private TableView<Medicine> medicine_table_view;
 
-    @FXML
-    private Button remove_medicine;
 
     @FXML
     private Button sell_medicine_btn;
@@ -150,8 +129,6 @@ public class DashboardController implements Initializable {
     @FXML
     private AnchorPane suplier_form;
 
-    @FXML
-    private Button update_medicine;
     @FXML
     private TextField suppler_id;
     @FXML
@@ -764,7 +741,7 @@ public class DashboardController implements Initializable {
     }
 
     // **************************** SELL MEDICINE CONTROLLER START *************************************
-    //
+    // METHOD FOR GETTING CATEGORY
     public void sell_category(){
         String sql = "SELECT category FROM medicine WHERE status = 'Available'";
         try {
@@ -783,7 +760,7 @@ public class DashboardController implements Initializable {
         }
     }
 
-    //
+    // METHOD FOR GETTING MEDICINE ID
     public void get_sell_medicine_id(){
         String sql = "SELECT * FROM medicine WHERE category = '"+ sell_category.getSelectionModel().getSelectedItem()+"'";
         try {
@@ -802,7 +779,7 @@ public class DashboardController implements Initializable {
             e.printStackTrace();
         }
     }
-    //
+    // METHOD FOR GETTING SUPPLIER NAME
     public void get_sell_supplier(){
         String sql = "SELECT * FROM medicine WHERE medicine_id = '"+ sell_medicine_id.getSelectionModel().getSelectedItem()+"'";
         try {
@@ -821,7 +798,7 @@ public class DashboardController implements Initializable {
             e.printStackTrace();
         }
     }
-    //
+    // METHOD FOR GETTING MEDICINE NAME
     public void get_sell_medicine_name(){
         String sql = "SELECT * FROM medicine WHERE supplier = '"+ sell_supplier.getSelectionModel().getSelectedItem()+"'";
         try {
@@ -839,7 +816,7 @@ public class DashboardController implements Initializable {
             e.printStackTrace();
         }
     }
-    //
+    // METHOD TO AUTOMATICALLY GENERATE CUSTOMER ID
     private  int customer_id;
     Statement statement;
     public void customerId(){
@@ -872,7 +849,7 @@ public class DashboardController implements Initializable {
             e.printStackTrace();
         }
     }
-    //
+    // METHOD TO GET ALL MEDICINES
     public ObservableList<Custermer> get_all_medicine_in_card (){
         customerId();
         ObservableList<Custermer> listData = FXCollections.observableArrayList();
@@ -901,7 +878,7 @@ public class DashboardController implements Initializable {
         }
         return listData;
     }
-    //
+    // THIS METHOD SHOW ALL THE MEDICINE IN CART OF A PARTICULAR CUSTOMER
     private ObservableList<Custermer> custermerObservableList;
 
     public void show_all_sell_medicine (){
@@ -912,12 +889,11 @@ public class DashboardController implements Initializable {
         sell_col_4.setCellValueFactory(new PropertyValueFactory<>("medicine_name"));
         sell_col_5.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         sell_col_6.setCellValueFactory(new PropertyValueFactory<>("price"));
-
         sell_table_view.setItems(custermerObservableList);
-        //diaplayTotalPrice();
+        //displayTotalPrice();
     }
 
-    // 
+    // THIS METHOD INITIALIZED NEW SPINNER
     private SpinnerValueFactory<Integer> spinner;
     public void getSpinner(){
         spinner = new SpinnerValueFactory.IntegerSpinnerValueFactory(0,10,0);
@@ -929,8 +905,9 @@ public class DashboardController implements Initializable {
     public void sell_Spinner(){
         qty = quantity.getValue();
     }
-    //
-    public void Add_to_card(){
+
+    //METHOD TO ADD MEDICINE TO CART
+    public void Add_to_cart(){
         customerId();
         String sql  = "INSERT INTO customer (customer_id,category,medicine_id,supplier,medicine_name,quantity,price,date) VALUES (?,?,?,?,?,?,?,?)";
         connect = Database.connect();
