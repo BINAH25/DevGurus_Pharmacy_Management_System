@@ -258,6 +258,8 @@ public class DashboardController implements Initializable {
             get_sell_medicine_name();
             show_all_sell_medicine();
             getSpinner();
+            displayTotalPrice();
+
             // SECOND OPTIONS
         } else if (event.getSource()==dashboard_btn_1) {
             dashboard_form.setVisible(true);
@@ -288,6 +290,8 @@ public class DashboardController implements Initializable {
             get_sell_medicine_name();
             show_all_sell_medicine();
             getSpinner();
+            displayTotalPrice();
+
             // THIRD OPTIONS
         } else if (event.getSource()==dashboard_btn_2) {
             dashboard_form.setVisible(true);
@@ -318,6 +322,8 @@ public class DashboardController implements Initializable {
             get_sell_medicine_name();
             show_all_sell_medicine();
             getSpinner();
+            displayTotalPrice();
+
             // LAST OPTIONS
         } else if (event.getSource()==dashboard_btn_3) {
             dashboard_form.setVisible(true);
@@ -348,6 +354,8 @@ public class DashboardController implements Initializable {
             get_sell_medicine_name();
             show_all_sell_medicine();
             getSpinner();
+            displayTotalPrice();
+
         }
     }
 // METHOD TO FILL THE STATUS COMBO
@@ -880,7 +888,6 @@ public class DashboardController implements Initializable {
     }
     // THIS METHOD SHOW ALL THE MEDICINE IN CART OF A PARTICULAR CUSTOMER
     private ObservableList<Custermer> custermerObservableList;
-
     public void show_all_sell_medicine (){
         custermerObservableList = get_all_medicine_in_card();
         sell_col_1.setCellValueFactory(new PropertyValueFactory<>("category"));
@@ -954,12 +961,33 @@ public class DashboardController implements Initializable {
                 alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information Message");
                 alert.setHeaderText(null);
-                alert.setContentText("Medicine Sold Successfully");
+                alert.setContentText("Medicine Added to Cart Successfully");
                 alert.showAndWait();
-                //diaplayTotalPrice();
+                displayTotalPrice();
                 show_all_sell_medicine();
             }
 
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    //
+    // METHOD TO DISPLAY TOTAL PRICE
+
+    private double total_price;
+    public void displayTotalPrice(){
+        customerId();
+        String sql  = "SELECT SUM(price) FROM customer WHERE customer_id = '" +customer_id+"'";
+        connect = Database.connect();
+        try {
+            prepare = connect.prepareStatement(sql);
+            result = prepare.executeQuery();
+
+            while (result.next()){
+                total_price = result.getDouble("SUM(price)");
+            }
+            total.setText("$"+String.valueOf(total_price));
 
         }catch (Exception e){
             e.printStackTrace();
@@ -979,6 +1007,7 @@ public class DashboardController implements Initializable {
     get_sell_medicine_name();
     show_all_sell_medicine();
     getSpinner();
+    displayTotalPrice();
 
 
     }
