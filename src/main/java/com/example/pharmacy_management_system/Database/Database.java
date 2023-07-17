@@ -1,4 +1,4 @@
-package com.example.pharmacy_management_system;
+package com.example.pharmacy_management_system.Database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

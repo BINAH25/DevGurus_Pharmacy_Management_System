@@ -1,5 +1,5 @@
 package com.example.pharmacy_management_system;
-import com.example.pharmacy_management_system.Database;
+import com.example.pharmacy_management_system.Database.Database;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

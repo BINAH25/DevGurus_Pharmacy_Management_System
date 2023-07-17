@@ -2,7 +2,7 @@ package com.example.pharmacy_management_system;
 import com.example.pharmacy_management_system.Data.Custermer;
 import com.example.pharmacy_management_system.Data.Medicine;
 import com.example.pharmacy_management_system.Data.Supplier;
-import com.example.pharmacy_management_system.Database;
+import com.example.pharmacy_management_system.Database.Database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

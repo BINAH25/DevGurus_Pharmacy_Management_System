@@ -453,7 +453,7 @@
                                           <Font name="Arial Bold" size="13.0" />
                                        </font>
                                     </Button>
-                                    <Button layoutX="58.0" layoutY="427.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="191.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Clear" textFill="WHITE">
+                                    <Button layoutX="58.0" layoutY="427.0" mnemonicParsing="false" onAction="#clearSupplierForm" prefHeight="33.0" prefWidth="191.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Clear" textFill="WHITE">
                                        <font>
                                           <Font name="Arial Bold" size="13.0" />
                                        </font>
