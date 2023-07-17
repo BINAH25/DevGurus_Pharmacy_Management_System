@@ -596,7 +596,7 @@
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="177.0" layoutY="248.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="96.0" styleClass="nav" stylesheets="@dashboard.css" text="Add to Card" textFill="WHITE" />
+                                    <Button layoutX="177.0" layoutY="248.0" mnemonicParsing="false" onAction="#Add_to_cart" prefHeight="30.0" prefWidth="96.0" styleClass="nav" stylesheets="@dashboard.css" text="Add to Card" textFill="WHITE" />
                                     <Label layoutX="55.0" layoutY="302.0" prefHeight="29.0" prefWidth="72.0" text="Total:">
                                        <font>
                                           <Font name="Arial Bold" size="15.0" />

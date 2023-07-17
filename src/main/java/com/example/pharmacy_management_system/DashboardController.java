@@ -912,7 +912,7 @@ public class DashboardController implements Initializable {
         String sql  = "INSERT INTO customer (customer_id,category,medicine_id,supplier,medicine_name,quantity,price,date) VALUES (?,?,?,?,?,?,?,?)";
         connect = Database.connect();
         try {
-            String checkData = "SELECT * FROM medicine WHERE medicine_name = '"
+            String checkData = "SELECT medicine_price FROM medicine WHERE medicine_name = '"
                     +sell_medicine_name.getSelectionModel().getSelectedItem() +"'";
 
             double price = 0;
@@ -921,7 +921,7 @@ public class DashboardController implements Initializable {
             result = statement.executeQuery(checkData);
 
             if(result.next()){
-                price = result.getDouble("price");
+                price = result.getDouble("medicine_price");
 
             }
             double total = (price * qty);
