@@ -141,6 +141,7 @@ public class DashboardController implements Initializable {
 
     @FXML
     private TableColumn<Supplier, String> supplier_col_3;
+
     // ************************* PURCHASE MEDICINE START **********************
     @FXML
     private TextField amount;
