@@ -242,6 +242,9 @@ public class DashboardController implements Initializable {
             medicine_form.setVisible(false);
             suplier_form.setVisible(false);
             sell_medicine_form.setVisible(false);
+            total_customers();
+            total_income();
+            total_available_medicine();
         } else if (event.getSource()==add_medicine_btn) {
             dashboard_form.setVisible(false);
             medicine_form.setVisible(true);
@@ -274,6 +277,9 @@ public class DashboardController implements Initializable {
             medicine_form.setVisible(false);
             suplier_form.setVisible(false);
             sell_medicine_form.setVisible(false);
+            total_customers();
+            total_income();
+            total_available_medicine();
         } else if (event.getSource()==add_medicine_btn_1) {
             dashboard_form.setVisible(false);
             medicine_form.setVisible(true);
@@ -306,6 +312,9 @@ public class DashboardController implements Initializable {
             medicine_form.setVisible(false);
             suplier_form.setVisible(false);
             sell_medicine_form.setVisible(false);
+            total_customers();
+            total_income();
+            total_available_medicine();
         } else if (event.getSource()==add_medicine_btn_2) {
             dashboard_form.setVisible(false);
             medicine_form.setVisible(true);
@@ -338,6 +347,9 @@ public class DashboardController implements Initializable {
             medicine_form.setVisible(false);
             suplier_form.setVisible(false);
             sell_medicine_form.setVisible(false);
+            total_customers();
+            total_income();
+            total_available_medicine();
         } else if (event.getSource()==add_medicine_btn_3) {
             dashboard_form.setVisible(false);
             medicine_form.setVisible(true);
@@ -1173,7 +1185,10 @@ private double balance_price;
     show_all_sell_medicine();
     getSpinner();
     displayTotalPrice();
-
+    // HOME
+    total_customers();
+    total_income();
+    total_available_medicine();
 
     }
 }
