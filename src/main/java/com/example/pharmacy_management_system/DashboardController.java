@@ -1021,6 +1021,45 @@ private double balance_price;
         }
 
     }
+    // THIS METHOD RECORD THE CUSTOMER ID AND TOTAL AND BALANCE
+    public void pay_for_medicine(){
+        customerId();
+        String sql = "INSERT INTO customer_info (customer_id,total,amount,balance, date) VALUES (?,?,?,?,?)";
+        try {
+            connect = Database.connect();
+            if(total_price > 0 && amount_price >= total_price){
+                prepare = connect.prepareStatement(sql);
+                prepare.setString(1,String.valueOf(customer_id));
+                prepare.setString(2,String.valueOf(total_price));
+                prepare.setString(3,String.valueOf(amount_price));
+                prepare.setString(4,String.valueOf(balance_price));
+                Date date = new Date();
+                java.sql.Date sqldate = new java.sql.Date(date.getTime());
+                prepare.setString(5,String.valueOf(sqldate));
+                prepare.executeUpdate();
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Medicine Payment made Successfully");
+                alert.showAndWait();
+                amount.setText("");
+                balance.setText("");
+                total.setText("$0.0");
+                show_all_sell_medicine();
+
+            }else{
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Invalid Amount or Total price");
+                alert.showAndWait();
+
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     medicineStatusList();
