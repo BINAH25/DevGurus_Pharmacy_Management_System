@@ -245,6 +245,8 @@ public class DashboardController implements Initializable {
             total_customers();
             total_income();
             total_available_medicine();
+            total_suppliers();
+
         } else if (event.getSource()==add_medicine_btn) {
             dashboard_form.setVisible(false);
             medicine_form.setVisible(true);
@@ -280,6 +282,8 @@ public class DashboardController implements Initializable {
             total_customers();
             total_income();
             total_available_medicine();
+            total_suppliers();
+
         } else if (event.getSource()==add_medicine_btn_1) {
             dashboard_form.setVisible(false);
             medicine_form.setVisible(true);
@@ -315,6 +319,8 @@ public class DashboardController implements Initializable {
             total_customers();
             total_income();
             total_available_medicine();
+            total_suppliers();
+
         } else if (event.getSource()==add_medicine_btn_2) {
             dashboard_form.setVisible(false);
             medicine_form.setVisible(true);
@@ -350,6 +356,8 @@ public class DashboardController implements Initializable {
             total_customers();
             total_income();
             total_available_medicine();
+            total_suppliers();
+
         } else if (event.getSource()==add_medicine_btn_3) {
             dashboard_form.setVisible(false);
             medicine_form.setVisible(true);
@@ -1171,6 +1179,23 @@ private double balance_price;
             e.printStackTrace();
         }
     }
+    //
+    public void total_suppliers(){
+        String sql = "SELECT COUNT(id) FROM supplier";
+        int count = 0;
+        try {
+            connect = Database.connect();
+            prepare = connect.prepareStatement(sql);
+            result = prepare.executeQuery();
+            while (result.next()){
+                count = result.getInt("COUNT(id)");
+            }
+            total_suppliers.setText(String.valueOf(count));
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     medicineStatusList();
@@ -1189,6 +1214,7 @@ private double balance_price;
     total_customers();
     total_income();
     total_available_medicine();
+    total_suppliers();
 
     }
 }
