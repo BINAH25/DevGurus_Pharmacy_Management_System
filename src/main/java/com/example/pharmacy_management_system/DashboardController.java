@@ -148,7 +148,13 @@ public class DashboardController implements Initializable {
     @FXML
     private Label balance;
     @FXML
+    private Label total_income;
+    @FXML
+    private Label toatal_customer;
+    @FXML
     private Label available_medicine;
+    @FXML
+    private Label total_suppliers;
     @FXML
     private Spinner<Integer> quantity;
     @FXML
@@ -1116,6 +1122,22 @@ private double balance_price;
             }
             available_medicine.setText(String.valueOf(count));
 
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    //
+    public void total_income(){
+        String sql = "SELECT SUM(total) FROM customer_info";
+        double income = 0;
+        try {
+            connect = Database.connect();
+            prepare = connect.prepareStatement(sql);
+            result = prepare.executeQuery();
+            while (result.next()){
+                income = result.getDouble("SUM(total)");
+            }
+            total_income.setText(String.valueOf(income));
         }catch (Exception e){
             e.printStackTrace();
         }
