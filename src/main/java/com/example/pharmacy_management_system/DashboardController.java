@@ -972,7 +972,7 @@ public class DashboardController implements Initializable {
             e.printStackTrace();
         }
     }
-    //
+
     // METHOD TO DISPLAY TOTAL PRICE
 
     private double total_price;
@@ -993,7 +993,34 @@ public class DashboardController implements Initializable {
             e.printStackTrace();
         }
     }
+//
+// THIS METHOD TAKE THE AMOUNT AND CALCULATE THE BALANCE FROM THE TOTAL
+private double balance_price;
+    private  double amount_price;
+    public void orderAmount(){
+        amount_price = Double.parseDouble(amount.getText());
+        if(total_price > 0){
+            if(amount_price >= total_price){
+                balance_price = (amount_price - total_price);
+                balance.setText("$"+ String.valueOf(balance_price));
+            }else{
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Amount is less than total price");
+                alert.showAndWait();
+                amount.setText("");
+            }
+        }else{
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Total price is less than zero");
+            alert.showAndWait();
+            amount.setText("");
+        }
 
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     medicineStatusList();

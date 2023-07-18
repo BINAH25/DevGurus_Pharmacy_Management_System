@@ -612,7 +612,7 @@
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="amount" layoutX="123.0" layoutY="341.0" prefHeight="26.0" prefWidth="151.0" promptText="\$0.0" />
+                                    <TextField fx:id="amount" layoutX="123.0" layoutY="341.0" onAction="#orderAmount" prefHeight="26.0" prefWidth="151.0" promptText="\$0.0" />
                                     <Label layoutX="56.0" layoutY="378.0" prefHeight="29.0" prefWidth="72.0" text="Balance:">
                                        <font>
                                           <Font name="Arial Bold" size="15.0" />
