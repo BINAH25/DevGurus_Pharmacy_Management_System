@@ -1142,7 +1142,23 @@ private double balance_price;
             e.printStackTrace();
         }
     }
+//
+    public void total_customers(){
+        String sql = "SELECT COUNT(id) FROM customer_info";
+        int count = 0;
+        try {
+            connect = Database.connect();
+            prepare = connect.prepareStatement(sql);
+            result = prepare.executeQuery();
+            while (result.next()){
+                count = result.getInt("COUNT(id)");
+            }
+            toatal_customer.setText(String.valueOf(count));
 
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     medicineStatusList();
