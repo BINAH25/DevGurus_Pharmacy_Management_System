@@ -148,6 +148,8 @@ public class DashboardController implements Initializable {
     @FXML
     private Label balance;
     @FXML
+    private Label available_medicine;
+    @FXML
     private Spinner<Integer> quantity;
     @FXML
     private Label total;
@@ -1097,6 +1099,23 @@ private double balance_price;
                 }
 
             }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    //
+    public void total_available_medicine(){
+        String sql = "SELECT COUNT(id) FROM medicine WHERE status = 'Available'";
+        int count = 0;
+        try {
+            connect = Database.connect();
+            prepare = connect.prepareStatement(sql);
+            result = prepare.executeQuery();
+            while (result.next()){
+                count = result.getInt("COUNT(id)");
+            }
+            available_medicine.setText(String.valueOf(count));
+
         }catch (Exception e){
             e.printStackTrace();
         }
