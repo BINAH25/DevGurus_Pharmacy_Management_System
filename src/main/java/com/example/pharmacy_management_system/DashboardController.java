@@ -1060,6 +1060,48 @@ private double balance_price;
             e.printStackTrace();
         }
     }
+    // THIS METHOD CLEAR THE ISSUED GOODS
+    public void Reset(){
+        String sql = "DELETE FROM customer WHERE customer_id = '"+ customer_id+"'";
+        try {
+            connect = Database.connect();
+            if(sell_table_view.getItems().isEmpty()){
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error Message");
+                alert.setHeaderText(null);
+                alert.setContentText("No Medicine added");
+                alert.showAndWait();
+
+            }else{
+                alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Confirmation  Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Are you sure you want to reset the form");
+                Optional<ButtonType> option = alert.showAndWait();
+
+                if(option.get().equals(ButtonType.OK)){
+                    statement = connect.createStatement();
+                    statement.executeUpdate(sql);
+                    show_all_sell_medicine();
+                    amount_price = 0;
+                    balance_price = 0;
+                    total.setText("$0.0");
+                    balance.setText("");
+                    amount.setText("");
+
+                }else{
+                    alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Confirmation  Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Action cancelled");
+                }
+
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     medicineStatusList();

@@ -624,7 +624,7 @@
                                        </font>
                                     </Label>
                                     <Button layoutX="56.0" layoutY="427.0" mnemonicParsing="false" onAction="#pay_for_medicine" prefHeight="32.0" prefWidth="220.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Pay" />
-                                    <Button layoutX="57.0" layoutY="472.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="220.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Clear" />
+                                    <Button layoutX="57.0" layoutY="472.0" mnemonicParsing="false" onAction="#Reset" prefHeight="32.0" prefWidth="220.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Clear" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutX="11.0" layoutY="15.0" prefHeight="531.0" prefWidth="586.0" stylesheets="@dashboard.css">
