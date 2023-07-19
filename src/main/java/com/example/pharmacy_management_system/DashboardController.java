@@ -206,21 +206,21 @@ public class DashboardController implements Initializable {
     @FXML
     private Button bill_btn;
     @FXML
-    private TableView<?> bill_able_view;
+    private TableView<Bill> bill_able_view;
     @FXML
-    private TableColumn<?, ?> bill_col_1;
+    private TableColumn<Bill, String> bill_col_1;
 
     @FXML
-    private TableColumn<?, ?> bill_col_2;
+    private TableColumn<Bill, String> bill_col_2;
 
     @FXML
-    private TableColumn<?, ?> bill_col_3;
+    private TableColumn<Bill, String> bill_col_3;
 
     @FXML
-    private TableColumn<?, ?> bill_col_4;
+    private TableColumn<Bill, String> bill_col_4;
 
     @FXML
-    private TableColumn<?, ?> bill_col_5;
+    private TableColumn<Bill, String> bill_col_5;
 
     @FXML
     private AnchorPane bill_form;
@@ -423,6 +423,8 @@ public class DashboardController implements Initializable {
             suplier_form.setVisible(false);
             sell_medicine_form.setVisible(false);
             bill_form.setVisible(true);
+            show_all_bills();
+
         }else if (event.getSource()==dashboard_btn_4) {
             dashboard_form.setVisible(true);
             medicine_form.setVisible(false);
@@ -1308,14 +1310,12 @@ private double balance_price;
     ObservableList<Bill> billObservableLis;
     public void show_all_bills() {
         billObservableLis = get_all_bills();
-        medicine_col_1.setCellValueFactory(new PropertyValueFactory<>("medicine_id"));
-        medicine_col_2.setCellValueFactory(new PropertyValueFactory<>("medicine_name"));
-        medicine_col_3.setCellValueFactory(new PropertyValueFactory<>("medicine_price"));
-        medicine_col_4.setCellValueFactory(new PropertyValueFactory<>("supplier"));
-        medicine_col_5.setCellValueFactory(new PropertyValueFactory<>("category"));
-        medicine_col_6.setCellValueFactory(new PropertyValueFactory<>("status"));
-        medicine_col_7.setCellValueFactory(new PropertyValueFactory<>("date"));
-        medicine_table_view.setItems(medicineObservableList);
+        bill_col_1.setCellValueFactory(new PropertyValueFactory<>("customer_id"));
+        bill_col_2.setCellValueFactory(new PropertyValueFactory<>("total"));
+        bill_col_3.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        bill_col_4.setCellValueFactory(new PropertyValueFactory<>("balance"));
+        bill_col_5.setCellValueFactory(new PropertyValueFactory<>("date"));
+        bill_able_view.setItems(billObservableLis);
     }
 
     @Override
@@ -1337,6 +1337,7 @@ private double balance_price;
     total_income();
     total_available_medicine();
     total_suppliers();
+    show_all_bills();
 
     }
 }
