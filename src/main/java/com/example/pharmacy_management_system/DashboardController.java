@@ -752,10 +752,10 @@ public class DashboardController implements Initializable {
             } else {
                 String updateData = "UPDATE medicine SET "
                         + "medicine_name = '" + medicine_name.getText()
-                        + "medicine_price = '" + medicine_price.getText()
-                        + "',medicine_category = '" + medicine_category.getSelectionModel().getSelectedItem()
-                        + "',medicine_supplier = '" + medicine_supplier.getSelectionModel().getSelectedItem()
-                        + "',medicine_status = '" + medicine_status.getSelectionModel().getSelectedItem()
+                        + "',medicine_price = '" + medicine_price.getText()
+                        + "',category = '" + medicine_category.getSelectionModel().getSelectedItem()
+                        + "',supplier = '" + medicine_supplier.getSelectionModel().getSelectedItem()
+                        + "',status = '" + medicine_status.getSelectionModel().getSelectedItem()
                         + "'WHERE medicine_id = " + medicine_id.getText();
                 prepare = connect.prepareStatement(updateData);
                 prepare.executeUpdate();
