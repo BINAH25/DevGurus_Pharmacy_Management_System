@@ -1,4 +1,5 @@
 package com.example.pharmacy_management_system;
+import com.example.pharmacy_management_system.Data.Bill;
 import com.example.pharmacy_management_system.Data.Custermer;
 import com.example.pharmacy_management_system.Data.Medicine;
 import com.example.pharmacy_management_system.Data.Supplier;
@@ -1278,6 +1279,45 @@ private double balance_price;
             e.printStackTrace();
         }
     }
+    // METHOD TO GET ALL BILLS
+    ObservableList<Bill> get_all_bills(){
+        ObservableList<Bill> bills = FXCollections.observableArrayList();
+        String sql = "SELECT * FROM customer_info";
+        try {
+            connect = Database.connect();
+            prepare = connect.prepareStatement(sql);
+            result = prepare.executeQuery();
+            Bill bill;
+            while (result.next()){
+                bill = new Bill(
+                        result.getInt("customer_id"),
+                        result.getDouble("total"),
+                        result.getInt("amount"),
+                        result.getDouble("balance"),
+                        result.getDate("date")
+                );
+                bills.add(bill);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return bills;
+    }
+    // METHOD TO DISPLAY ALL BILLS
+    ObservableList<Bill> billObservableLis;
+    public void show_all_bills() {
+        billObservableLis = get_all_bills();
+        medicine_col_1.setCellValueFactory(new PropertyValueFactory<>("medicine_id"));
+        medicine_col_2.setCellValueFactory(new PropertyValueFactory<>("medicine_name"));
+        medicine_col_3.setCellValueFactory(new PropertyValueFactory<>("medicine_price"));
+        medicine_col_4.setCellValueFactory(new PropertyValueFactory<>("supplier"));
+        medicine_col_5.setCellValueFactory(new PropertyValueFactory<>("category"));
+        medicine_col_6.setCellValueFactory(new PropertyValueFactory<>("status"));
+        medicine_col_7.setCellValueFactory(new PropertyValueFactory<>("date"));
+        medicine_table_view.setItems(medicineObservableList);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     medicineStatusList();
