@@ -37,6 +37,9 @@ public class DashboardController implements Initializable {
 
     @FXML
     private Button add_medicine_btn_3;
+    @FXML
+    private Button add_medicine_btn_4;
+
 
     @FXML
     private Button add_supplier_btn;
@@ -49,6 +52,8 @@ public class DashboardController implements Initializable {
 
     @FXML
     private Button add_supplier_btn_3;
+    @FXML
+    private Button add_supplier_btn_4;
 
     @FXML
     private Button dashboard_btn;
@@ -61,6 +66,8 @@ public class DashboardController implements Initializable {
 
     @FXML
     private Button dashboard_btn_3;
+    @FXML
+    private Button dashboard_btn_4;
 
     @FXML
     private AnchorPane dashboard_form;
@@ -122,6 +129,8 @@ public class DashboardController implements Initializable {
 
     @FXML
     private Button sell_medicine_btn_3;
+    @FXML
+    private Button sell_medicine_btn_4;
 
     @FXML
     private AnchorPane sell_medicine_form;
@@ -192,6 +201,28 @@ public class DashboardController implements Initializable {
 
     @FXML
     private TableView<Supplier> supplier_table_view;
+
+    @FXML
+    private Button bill_btn;
+    @FXML
+    private TableView<?> bill_able_view;
+    @FXML
+    private TableColumn<?, ?> bill_col_1;
+
+    @FXML
+    private TableColumn<?, ?> bill_col_2;
+
+    @FXML
+    private TableColumn<?, ?> bill_col_3;
+
+    @FXML
+    private TableColumn<?, ?> bill_col_4;
+
+    @FXML
+    private TableColumn<?, ?> bill_col_5;
+
+    @FXML
+    private AnchorPane bill_form;
     // Sql import
     Connection connect;
     PreparedStatement prepare;
