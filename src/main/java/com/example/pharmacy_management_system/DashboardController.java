@@ -406,7 +406,58 @@ public class DashboardController implements Initializable {
             dashboard_form.setVisible(false);
             medicine_form.setVisible(false);
             suplier_form.setVisible(false);
+            bill_form.setVisible(false);
             sell_medicine_form.setVisible(true);
+            sell_category();
+            get_sell_medicine_id();
+            get_sell_supplier();
+            get_sell_medicine_name();
+            show_all_sell_medicine();
+            getSpinner();
+            displayTotalPrice();
+
+        } else if (event.getSource()==bill_btn) {
+            dashboard_form.setVisible(false);
+            medicine_form.setVisible(false);
+            suplier_form.setVisible(false);
+            sell_medicine_form.setVisible(false);
+            bill_form.setVisible(true);
+        }else if (event.getSource()==dashboard_btn_4) {
+            dashboard_form.setVisible(true);
+            medicine_form.setVisible(false);
+            suplier_form.setVisible(false);
+            sell_medicine_form.setVisible(false);
+            bill_form.setVisible(false);
+
+            total_customers();
+            total_income();
+            total_available_medicine();
+            total_suppliers();
+
+        } else if (event.getSource()==add_medicine_btn_4) {
+            dashboard_form.setVisible(false);
+            medicine_form.setVisible(true);
+            suplier_form.setVisible(false);
+            sell_medicine_form.setVisible(false);
+            bill_form.setVisible(false);
+
+            show_all_medicine();
+        } else if (event.getSource()==add_supplier_btn_4) {
+            dashboard_form.setVisible(false);
+            medicine_form.setVisible(false);
+            suplier_form.setVisible(true);
+            sell_medicine_form.setVisible(false);
+            bill_form.setVisible(false);
+
+            showAllSuppliers();
+
+        } else if (event.getSource()==sell_medicine_btn_4) {
+            dashboard_form.setVisible(false);
+            medicine_form.setVisible(false);
+            suplier_form.setVisible(false);
+            sell_medicine_form.setVisible(true);
+            bill_form.setVisible(false);
+
             sell_category();
             get_sell_medicine_id();
             get_sell_supplier();
