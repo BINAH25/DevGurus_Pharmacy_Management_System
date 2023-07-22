@@ -1264,7 +1264,7 @@ private double balance_price;
             e.printStackTrace();
         }
     }
-    //
+    // METHOD TO GET ALL SUPPLIERS
     public void total_suppliers(){
         String sql = "SELECT COUNT(id) FROM supplier";
         int count = 0;
