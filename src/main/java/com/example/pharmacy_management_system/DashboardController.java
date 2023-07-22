@@ -1231,7 +1231,7 @@ private double balance_price;
             e.printStackTrace();
         }
     }
-    //
+    // METHOD TO GET TOTAL INCOME
     public void total_income(){
         String sql = "SELECT SUM(total) FROM customer_info";
         double income = 0;
