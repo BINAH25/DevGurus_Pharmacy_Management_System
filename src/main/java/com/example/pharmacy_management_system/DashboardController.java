@@ -1247,7 +1247,7 @@ private double balance_price;
             e.printStackTrace();
         }
     }
-//
+//METHOD TO GET ALL CUSTOMERS
     public void total_customers(){
         String sql = "SELECT COUNT(id) FROM customer_info";
         int count = 0;
