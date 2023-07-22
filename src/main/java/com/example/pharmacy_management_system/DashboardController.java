@@ -656,7 +656,7 @@ public class DashboardController implements Initializable {
             e.printStackTrace();
         }
     }
-    //
+    // METHOD TO GET MEDICINE CATEGORY
     public void medecineCategoryList(){
         String sql = "SELECT * FROM supplier";
         try {
@@ -1214,7 +1214,7 @@ private double balance_price;
             e.printStackTrace();
         }
     }
-    //
+    //METHOD TO GET AVAILABLE MEDICINES
     public void total_available_medicine(){
         String sql = "SELECT COUNT(id) FROM medicine WHERE status = 'Available'";
         int count = 0;
