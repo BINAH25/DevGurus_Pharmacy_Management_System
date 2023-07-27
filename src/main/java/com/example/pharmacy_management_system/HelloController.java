@@ -51,10 +51,11 @@ public class HelloController {
                     alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("success Message");
                     alert.setHeaderText(null);
-                    alert.setContentText("Login Successful");
+                    alert.setContentText("Login Successfully");
                     alert.showAndWait();
                     login_btn.getScene().getWindow().hide();
                     Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+
                     //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
                     Stage stage = new Stage();
                     Scene scene = new Scene(root);
